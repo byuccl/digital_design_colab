@@ -5,12 +5,12 @@ from ipywidgets import AppLayout, Button, Layout, jslink, IntText, IntSlider
 
 #Free Response QUESTIONs
 frquestions = [
-["What integer does this sign-magnitude number represent? `10101`", -5],
-["What integer does this sign-magnitude number represent? `01110`?", 14],
-["What integer does this two's complement number represent? `10101`", -11],
-["What integer does this two's complement number represent? `01110`", 14],
-["What is the inverse of the two's complement number? `10101`", 11],
-["What is the inverse of the twos complement value? `01110`", -14],
+["Convert this binary number to decimal: 10110", 22],
+["Convert this binary number to decimal: 10001", 17],
+["Convert this binary number to decimal: 101011", 43],
+["Convert this decimal number to binary: 9", 1001],
+["Convert this decimal number to binary: 21", 10101],
+["Convert this decimal number to binary: 63", 111111],
 ["What is `1001` + `0110` in Binary? (Its unsigned)", 1111],
 ["What is `0111` + `0011` in Binary? (Its unsigned)",  1010],
 ["What is `1010101`+0101101` in Binary? (Its unsigned)", 10000010],
