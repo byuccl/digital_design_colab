@@ -14,7 +14,7 @@ frquestions = [
 ["Convert this hexadecimal number to decimal: A3E", 2622],
 ["Convert this hexadecimal number to binary: 5B", 1011011],
 ["Convert this hexadecimal number to binary: C9", 11001001],
-["Convert this decimal number to hexadecimal: 137", 111111],
+["Convert this decimal number to hexadecimal: 137", 89],
 ["Convert this binary number to hexadecimal: 10000011 ", 83],
 ["Convert this binary number to hexadecimal: 1011111011101111", "BEEF"],
 ["What is `0001` sign extended to 8 bits wide?", 1],
