@@ -1,3 +1,20 @@
+import os
+
+
+def cd(folder):
+    """My wrapper for os.chdir() so I can print it desired."""
+    if folder:
+        os.chdir(folder)
+    # print("##### Changing to " + os.getcwd() + "#####")
+
+
+def import_text(text):
+    url = "https://raw.githubusercontent.com/westonMS/tempColab/main/Labs/bin/%s" % text
+    resp = requests.get(url)
+    with open(text, "wb") as f:
+        f.write(resp.content)
+
+
 def import_all():
     cd("/content/tmp_code")
     import_text("TBtemplate.txt")
