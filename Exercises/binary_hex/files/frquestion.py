@@ -16,8 +16,7 @@ frquestions = [
 ["Convert this hexadecimal number to binary: C9", 11001001],
 ["Convert this decimal number to hexadecimal: 137", 89],
 ["Convert this binary number to hexadecimal: 10000011 ", 83],
-["Convert this binary number to hexadecimal: 1011111011101111", "BEEF"],
-
+["Convert this binary number to hexadecimal: 1011111011101111", "BEEF"]
 ]
 def create_expanded_button(description, button_style, width='auto'):
     return Button(description=description, button_style=button_style, layout=Layout(height='auto', width=width))
@@ -147,75 +146,3 @@ def frq_12_check(grid, qlist):
     grid[0,2].button_style = "danger"
 def check_frq_12(self):
   frq_12_check(frq_12, frquestions)
-#Question 13
-frq_13 = create_frq_int(frquestions, 12, 450)
-def frq_13_check(grid, qlist):
-  if grid[0,1].value == qlist[12][1]:
-    grid[0,2].button_style = "success"
-  else:
-    grid[0,2].button_style = "danger"
-def check_frq_13(self):
-  frq_13_check(frq_13, frquestions)
-#Question 14
-frq_14 = create_frq_int(frquestions, 13, 450)
-def frq_14_check(grid, qlist):
-  if grid[0,1].value == qlist[13][1]:
-    grid[0,2].button_style = "success"
-  else:
-    grid[0,2].button_style = "danger"
-def check_frq_14(self):
-  frq_14_check(frq_14, frquestions)
-#Question 15
-frq_15 = create_frq_int(frquestions, 14, 450)
-def frq_15_check(grid, qlist):
-  if grid[0,1].value == qlist[14][1]:
-    grid[0,2].button_style = "success"
-  else:
-    grid[0,2].button_style = "danger"
-def check_frq_15(self):
-  frq_15_check(frq_15, frquestions)
-#Question 16
-frq_16 = create_frq_int(frquestions, 15, 450, 11111111)
-def frq_16_check(grid, qlist):
-  if grid[0,1].value == qlist[15][1]:
-    grid[0,2].button_style = "success"
-  else:
-    grid[0,2].button_style = "danger"
-def check_frq_16(self):
-  frq_16_check(frq_16, frquestions)
-#Question 17
-frq_17 = create_frq_int(frquestions, 16, 450)
-def frq_17_check(grid, qlist):
-  if grid[0,1].value == qlist[16][1]:
-    grid[0,2].button_style = "success"
-  else:
-    grid[0,2].button_style = "danger"
-def check_frq_17(self):
-  frq_17_check(frq_17, frquestions)
-#Question 18
-frq_18 = create_frq_int(frquestions, 17, 450)
-def frq_18_check(grid, qlist):
-  if grid[0,1].value == qlist[17][1]:
-    grid[0,2].button_style = "success"
-  else:
-    grid[0,2].button_style = "danger"
-def check_frq_18(self):
-  frq_18_check(frq_18, frquestions)
-#Question 19
-frq_19 = create_frq_int(frquestions, 18, 450)
-def frq_19_check(grid, qlist):
-  if grid[0,1].value == qlist[18][1]:
-    grid[0,2].button_style = "success"
-  else:
-    grid[0,2].button_style = "danger"
-def check_frq_19(self):
-  frq_19_check(frq_19, frquestions)
-#Question 20
-frq_20 = create_frq_int(frquestions, 19, 450)
-def frq_20_check(grid, qlist):
-  if grid[0,1].value == qlist[19][1]:
-    grid[0,2].button_style = "success"
-  else:
-    grid[0,2].button_style = "danger"
-def check_frq_20(self):
-  frq_20_check(frq_20, frquestions)
