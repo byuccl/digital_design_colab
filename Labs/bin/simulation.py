@@ -377,7 +377,7 @@ def showWaveformClicked(self):
         return
     srcFileName = getModuleName(sc.textSourceCode)
     arrow = sc.chkArrow.value
-    hex = True if sc.selectHexBin.value is "Hex" else False
+    hex = True if sc.selectHexBin.value == "Hex" else False
     assert os.path.exists(
         sc.interpreterHomeDir + "/tmp_code/" + srcFileName + ".sv"
     ), "Please submit the codes before showing waveform: {} {}".format(
@@ -509,7 +509,7 @@ def CreateWidgets(contents, ht="125px", wid="500px", stht="125px", stwid="500px"
 
 def submitCodes(interpreterHomeDir, textSourceCode, textStimulus, selectHexBin):
     print(selectHexBin)
-    if textSourceCode.value is "" or textStimulus.value is "":
+    if textSourceCode.value == "" or textStimulus.value == "":
         print("The source code and stimulus cannot be empty! Please input again")
         print(
             "###########################################################################################"
