@@ -16,7 +16,7 @@ def import_text(text):
         f.write(resp.content)
 
 
-def import_all():
+def import_dataflow():
     cd("/content/tmp_code")
     import_text("TBtemplate.txt")
     import_text("simTemplate.txt")
