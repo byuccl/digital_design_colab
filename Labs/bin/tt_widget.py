@@ -1,4 +1,4 @@
-import ipywidgets as widgets
+odeimport ipywidgets as widgets
 from ipywidgets import GridspecLayout
 from ipywidgets import AppLayout, Button, Layout, jslink, IntText, IntSlider
 
@@ -93,6 +93,7 @@ grid1_8 = create_grid(3,'ABC000001010011100101110111', 'F=!(AC)|(BA)')
 # Process when clicking the "Check" button
 # AND
 def on_button_clicked(self):
+    print(self)
     CheckAnswer(grid1_1, 2, '0001')
 
 
