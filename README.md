@@ -15,7 +15,7 @@ How Verilator works<br>
 How to use The Notebook<br>
 Binary, Oct, Hex<br>
 Two's Complement and Sign Magnitude<br>
-**Lab** - ?Basic System Verilog assign statements<br>
+**Lab** - Basic System Verilog assign statements<br>
 
 
 Boolean Algebra basics + Truth Tables<br>
