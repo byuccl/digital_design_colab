@@ -26,6 +26,7 @@ def import_packages():
 
 def import_source():
     cd("/content/tmp_code")
+    import_text("TBtemplate")
     import_text("simTemplate.txt")
     import_text("simTemplate2.txt")
     import_text("bitwiseAnd.sv")
