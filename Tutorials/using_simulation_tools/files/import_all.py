@@ -10,12 +10,17 @@ def cd(folder):
 
 def import_text(text):
     url = (
-        "https://raw.githubusercontent.com/westonMS/tempColab/master/Tutorials/using_simulation_tools/files/%s"
+        "https://raw.githubusercontent.com/byuccl/digital_design_colab2/master/Tutorials/using_simulation_tools/files/%s"
         % text
     )
     resp = requests.get(url)
     with open(text, "wb") as f:
         f.write(resp.content)
+
+
+def import_packages():
+    cd("/content")
+    import_text("simlation.py")
 
 
 def import_source():
