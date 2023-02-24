@@ -20,7 +20,7 @@ def import_text(text):
 
 def import_packages():
     cd("/content")
-    import_text("simlation.py")
+    import_text("simulation.py")
 
 
 def import_source():
