@@ -359,6 +359,7 @@ def generate(
     except Exception as e:
         os.chdir(homeDir)
         print(str(e))
+        raise e
 
 
 def showWaveformClicked(self):
@@ -383,15 +384,21 @@ def showWaveformClicked(self):
     ), "Please submit the codes before showing waveform: {} {}".format(
         sc.interpreterHomeDir, srcFileName
     )
-    generate(
-        sc.interpreterHomeDir + "/tmp_code",
-        srcFileName + ".sv",
-        srcFileName + ".stm",
-        compress=True,
-        Hex=hex,
-        verbose=True,
-        processClockWaveform=arrow,
-    )
+
+    try:
+        generate(
+            sc.interpreterHomeDir + "/tmp_code",
+            srcFileName + ".sv",
+            srcFileName + ".stm",
+            compress=True,
+            Hex=hex,
+            verbose=True,
+            processClockWaveform=arrow,
+        )
+    except Exception as e:
+        print("Invalid Syntax")
+        return
+
     if sc.showCode.value:
         print(
             "------------------------------------------------------------------------------------------"
