@@ -20,6 +20,19 @@ VerilogIO = namedtuple("VerilogIO", "dir nam wid")
 """
 
 
+def vcd():
+    x = subprocess.run(
+        ["cat", "/content/tmp_code/logs/vlt_dump.vcd"], check=True, capture_output=True
+    )
+    y = subprocess.run(["vcd"], input=x.stdout, capture_output=True)
+    z = y.stdout.decode("utf-8").strip()
+    z = z.split("\n")[10:]
+    a = ""
+    for i in z:
+        a += i + "\n"
+    print(a)
+
+
 def getModuleName(textSourceCode):
     match_name = re.search(
         r"module\s{1,}\w{1,}\s{0,}#{0,}\s{0,}\(", textSourceCode.value
@@ -425,9 +438,6 @@ def showWaveformClicked(self):
         stderr=subprocess.PIPE,
     )
     print(x.stderr + x.stdout)
-    # x = subprocess.run(["vcd", "< /content/tmp_code/logs/vlt_dump.vcd" ], stdout = subprocess.PIPE, stderr = subprocess.PIPE)
-    # print(str(x.stderr) + str(x.stdout))
-    # # os.system("vcd < /content/tmp_code/logs/vlt_dump.vcd" )
     vcd()
 
 
@@ -655,7 +665,6 @@ def overwriteSavedCode(self):
 def createSimulationWorkSpace(
     initialContents=None, ht="125px", wid="500px", stht="125px", stwid="500px"
 ):
-
     interpreterHomeDir = os.getcwd()
     code_file_path = interpreterHomeDir + "/tmp_code"
     if not os.path.exists(code_file_path):
