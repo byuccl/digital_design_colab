@@ -9,7 +9,6 @@ import ipywidgets as widgets
 from ipywidgets import GridspecLayout
 from ipywidgets import AppLayout, Button, Layout, jslink, IntText, IntSlider
 
-
 VerilogIO = namedtuple("VerilogIO", "dir nam wid")
 """
         Using a namedtuple (sort of like a C-struct) to hold info on each Verilog IO.
@@ -19,6 +18,16 @@ VerilogIO = namedtuple("VerilogIO", "dir nam wid")
         This is used by both generate() and processVmoduleHFile() so it is declared in global scope.
 """
 
+
+def vcd():
+  x = subprocess.run(["cat", "/content/tmp_code/logs/vlt_dump.vcd"], check = True, capture_output=True)
+  y = subprocess.run(["vcd"], input=x.stdout, capture_output=True)
+  z = (y.stdout.decode("utf-8").strip())
+  z = z.split('\n')[10:]
+  a = ''
+  for i in z:
+    a += i + '\n'
+  print(a)
 
 def getModuleName(textSourceCode):
     match_name = re.search(
@@ -417,10 +426,6 @@ def showWaveformClicked(self):
         stdout=subprocess.PIPE,
         stderr=subprocess.PIPE,
     )
-    print(x.stderr + x.stdout)
-    # x = subprocess.run(["vcd", "< /content/tmp_code/logs/vlt_dump.vcd" ], stdout = subprocess.PIPE, stderr = subprocess.PIPE)
-    # print(str(x.stderr) + str(x.stdout))
-    # # os.system("vcd < /content/tmp_code/logs/vlt_dump.vcd" )
     vcd()
 
 
