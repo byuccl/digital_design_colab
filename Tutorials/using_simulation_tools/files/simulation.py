@@ -9,6 +9,7 @@ import ipywidgets as widgets
 from ipywidgets import GridspecLayout
 from ipywidgets import AppLayout, Button, Layout, jslink, IntText, IntSlider
 
+
 VerilogIO = namedtuple("VerilogIO", "dir nam wid")
 """
         Using a namedtuple (sort of like a C-struct) to hold info on each Verilog IO.
@@ -20,14 +21,17 @@ VerilogIO = namedtuple("VerilogIO", "dir nam wid")
 
 
 def vcd():
-  x = subprocess.run(["cat", "/content/tmp_code/logs/vlt_dump.vcd"], check = True, capture_output=True)
-  y = subprocess.run(["vcd"], input=x.stdout, capture_output=True)
-  z = (y.stdout.decode("utf-8").strip())
-  z = z.split('\n')[10:]
-  a = ''
-  for i in z:
-    a += i + '\n'
-  print(a)
+    x = subprocess.run(
+        ["cat", "/content/tmp_code/logs/vlt_dump.vcd"], check=True, capture_output=True
+    )
+    y = subprocess.run(["vcd"], input=x.stdout, capture_output=True)
+    z = y.stdout.decode("utf-8").strip()
+    z = z.split("\n")[10:]
+    a = ""
+    for i in z:
+        a += i + "\n"
+    print(a)
+
 
 def getModuleName(textSourceCode):
     match_name = re.search(
@@ -368,6 +372,7 @@ def generate(
     except Exception as e:
         os.chdir(homeDir)
         print(str(e))
+        raise e
 
 
 def showWaveformClicked(self):
@@ -392,15 +397,21 @@ def showWaveformClicked(self):
     ), "Please submit the codes before showing waveform: {} {}".format(
         sc.interpreterHomeDir, srcFileName
     )
-    generate(
-        sc.interpreterHomeDir + "/tmp_code",
-        srcFileName + ".sv",
-        srcFileName + ".stm",
-        compress=True,
-        Hex=hex,
-        verbose=True,
-        processClockWaveform=arrow,
-    )
+
+    try:
+        generate(
+            sc.interpreterHomeDir + "/tmp_code",
+            srcFileName + ".sv",
+            srcFileName + ".stm",
+            compress=True,
+            Hex=hex,
+            verbose=True,
+            processClockWaveform=arrow,
+        )
+    except Exception as e:
+        print("Invalid Syntax")
+        return
+
     if sc.showCode.value:
         print(
             "------------------------------------------------------------------------------------------"
@@ -426,6 +437,7 @@ def showWaveformClicked(self):
         stdout=subprocess.PIPE,
         stderr=subprocess.PIPE,
     )
+    print(x.stderr + x.stdout)
     vcd()
 
 
@@ -653,7 +665,6 @@ def overwriteSavedCode(self):
 def createSimulationWorkSpace(
     initialContents=None, ht="125px", wid="500px", stht="125px", stwid="500px"
 ):
-
     interpreterHomeDir = os.getcwd()
     code_file_path = interpreterHomeDir + "/tmp_code"
     if not os.path.exists(code_file_path):
