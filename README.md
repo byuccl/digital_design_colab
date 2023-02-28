@@ -7,7 +7,7 @@ This repository contains colab examples for:
 * [Learning Exercises](./Exercises/README.md)
 * [Design Labs](./Labs/README.md)
 
-Explanations about each type of Notebook can be found on the [wiki] (https://github.com/byuccl/digital_design_colab2/wiki)
+Explanations about each type of Notebook can be found on the [wiki](https://github.com/byuccl/digital_design_colab2/wiki).
 
 ## Tutorial Notebooks<br>
 
