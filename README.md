@@ -3,7 +3,7 @@
 This repository contains [Google Colab](https://colab.research.google.com/) pages for learning and developing digital circuits.
 This repository contains colab examples for:
 
-* [Tutorials](./tutorials/README.md)
+* [Tutorials](./Tutorials/README.md)
 * [Learning Exercises](./Exercises/README.md)
 * [Design Labs](./Labs/README.md)
 
