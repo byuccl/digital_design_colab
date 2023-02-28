@@ -1,4 +1,12 @@
-# Notebooks 2.0 (smaller)<br>
+# Notebooks 2.0<br>
+
+This repository contains [Google Colab](https://colab.research.google.com/) pages for learning and developing digital circuits.
+This repository contains colab examples for:
+
+* [Tutorials](./tutorials/README.md)
+* [Learning Exercises](./Exercises/README.md)
+* [Design Labs](./Labs/README.md)
+
 
 ## Tutorial Notebooks<br>
 
