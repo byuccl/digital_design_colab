@@ -8,6 +8,7 @@ This repository contains colab examples for:
 * [Design Labs](./Labs/README.md)
 
 Explanations about each type of Notebook can be found on the [wiki](https://github.com/byuccl/digital_design_colab2/wiki).
+If you're new to this repository and are looking for a place to start, [this notebook](https://colab.research.google.com/github/byuccl/digital_design_colab2/blob/master/Tutorials/notebook_functionality/notebook_functionality.ipynb) explains what you need to know about Google Colabs in order to follow along with the rest of the notebooks.
 
 ## Tutorial Notebooks<br>
 
