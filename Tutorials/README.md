@@ -1,4 +1,4 @@
-These notebooks are designed to provide explanations about Google Colabs and introduce different techniques and skills that will be used in other notebooks.
+These notebooks are designed to provide explanations about Google Colabs and introduce different techniques and skills that will be used in other notebooks. A list of all the notebooks can be found below along with their Google Colab link. Press the link to get started on a notebook.
 
 Notebook Functionality [![colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/byuccl/digital_design_colab2/blob/master/Tutorials/notebook_functionality/notebook_functionality.ipynb)
 
