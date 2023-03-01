@@ -1,8 +1,9 @@
-Lesson 1: Truth Tables [![colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/byuccl/digital_design_colab2/blob/master/Exercises/truth_tables/truth_tables.ipynb)
 
-Lesson 2: Logic Gates [![colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/byuccl/digital_design_colab2/blob/master/Exercises/gates/gates.ipynb)
+Lesson 1: Boolean Algebra [![colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/byuccl/digital_design_colab2/blob/master/Exercises/boolean_algebra/boolean_algebra.ipynb)
 
-Lesson 3: Boolean Algebra [![colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/byuccl/digital_design_colab2/blob/master/Exercises/boolean_algebra/boolean_algebra.ipynb)
+Lesson 2: Truth Tables [![colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/byuccl/digital_design_colab2/blob/master/Exercises/truth_tables/truth_tables.ipynb)
+
+Lesson 3: Logic Gates [![colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/byuccl/digital_design_colab2/blob/master/Exercises/gates/gates.ipynb)
 
 Lesson 4: Karnaugh Maps [![colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/byuccl/digital_design_colab2/blob/master/Exercises/karnaugh_maps/karnaugh_maps.ipynb)
 
