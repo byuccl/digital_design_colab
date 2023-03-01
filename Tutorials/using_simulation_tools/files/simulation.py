@@ -214,6 +214,10 @@ def generate(
             shell=True,
             universal_newlines=True,
         )
+        x = v.stdout.read()
+        if x.find("Error") != -1:
+            raise Exception(x)
+
         verbose = 0
         if verbose:
             print("Running verilator...")
@@ -409,7 +413,6 @@ def showWaveformClicked(self):
             processClockWaveform=arrow,
         )
     except Exception as e:
-        print("Invalid Syntax")
         return
 
     if sc.showCode.value:
