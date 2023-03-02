@@ -2,7 +2,21 @@ import ipywidgets as widgets
 from ipywidgets import GridspecLayout
 from ipywidgets import AppLayout, Button, Layout, jslink, IntText, IntSlider
 
-tt = {"Q1": [2, "0001"]}
+"""
+Holds the values for the truth tables.
+Structure:
+------------
+    key: Q + question number.
+List 
+    [0] : The number of inputs
+    [1] : The correct answer, MSB is the top row
+"""
+tt = {
+    "Q1": [2, "A'*B + A'+B'", "1110"],
+    "Q2": [3, "ABC + B'C + A'C'", "11100101"],
+    "Q3": [3, "A'B'C + AC + BC", "01010101"],
+    "Q4": [4, "ABCD' + A'BCD' + BC'D + B +  BC'D' + C'D", "0100111101001111"],
+}
 
 
 def create_expanded_button(description, button_style, width="100px", tooltip=""):
@@ -41,10 +55,21 @@ def create_grid(questionNumber):
     tooltip = f"Q%d" % questionNumber
     num_input = tt[tooltip][0]
     input_string = ""
+    question_string = ""
     if num_input == 1:
         input_string = "A01"
+        question_string = "f(A) ="
     elif num_input == 2:
         input_string = "AB00011011"
+        question_string = "f(A,B) ="
+    elif num_input == 3:
+        question_string = "f(A,B,C) ="
+        input_string = "ABC000001010011100101110111"
+    elif num_input == 4:
+        question_string = "f(A,B,C,D) = "
+        input_string = (
+            "ABCD0000000100100011010001010110011110001001101010111100110111101111"
+        )
 
     num_row = (2**num_input) + 1
     num_col = num_input + 2
@@ -70,8 +95,11 @@ def create_grid(questionNumber):
     for i in range(1, num_row):
         grid[i, num_col - 1] = create_expanded_button(" ", "warning", width="150px")
 
-    grid[0, num_input] = create_expanded_button(tt[tooltip][1], "info")
-    return grid
+    grid[0, num_input] = create_expanded_button(question_string, "info")
+
+    header_button = create_expanded_button(tt[tooltip][1], "info", "466px")
+
+    return grid, header_button
 
 
 def CheckAnswer(grid, num_inputs, input):
@@ -108,4 +136,12 @@ for key in tt:
 # Process when clicking the "Check" button
 # AND
 def on_button_clicked(self):
-    CheckAnswer(tt_grids[self.tooltip], tt[self.tooltip][0], tt[self.tooltip][1])
+    CheckAnswer(tt_grids[self.tooltip], tt[self.tooltip][0], tt[self.tooltip][2])
+
+
+def print_grid(question_number):
+    key = "Q" + str(question_number)
+    tt_grids[key][0][0, 3].on_click(on_button_clicked)
+    # Create the head tab
+    # Display the widgets
+    display(widgets.VBox([tt_grids[key][1], tt_grids[key][0]]))
