@@ -85,14 +85,14 @@ The dictionary that holds the questions and the answers.
 Answers can be String or Int type. This does change the function used to create the grid object as shown
 The key is Q + Question Index. 
 """
-frquestions = {"Q0": ["Example Question", "Answer"]}
+frquestions = {"Q1": ["What is the output of this set of gates?", "1"]}
 
 # Define your FRQs here
 frq_1 = create_frq_int(frquestions, 0)
 
 
 frqs = {
-    "Q0": frq_1,
+    "Q1": frq_1,
 }
 
 
