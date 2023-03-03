@@ -85,24 +85,7 @@ The dictionary that holds the questions and the answers.
 Answers can be String or Int type. This does change the function used to create the grid object as shown
 The key is Q + Question Index. 
 """
-frquestions = {"Q0": ["Example Question", "Answer"]}
-
-# Define your FRQs here
-frq_1 = create_frq_int(frquestions, 0)
-
-
-frqs = {
-    "Q0": frq_1,
-}
-
-
-def frq_check(key):
-    grid = frqs[key]
-    qlist = frquestions[key]
-    if grid[0, 1].value == qlist[1]:
-        grid[0, 2].button_style = "success"
-    else:
-        grid[0, 2].button_style = "danger"
+frquestions = {"Q1": ["Example Question", "Answer", "Title"]}
 
 
 def check_frq(self):
@@ -110,15 +93,39 @@ def check_frq(self):
     frq_check(key)
 
 
-frq_1[0, 2].on_click(check_frq)
-frq_2[0, 2].on_click(check_frq)
-frq_3[0, 2].on_click(check_frq)
-frq_4[0, 2].on_click(check_frq)
-frq_5[0, 2].on_click(check_frq)
-frq_6[0, 2].on_click(check_frq)
-frq_7[0, 2].on_click(check_frq)
-frq_8[0, 2].on_click(check_frq)
-frq_9[0, 2].on_click(check_frq)
-frq_10[0, 2].on_click(check_frq)
-frq_11[0, 2].on_click(check_frq)
-frq_12[0, 2].on_click(check_frq)
+def create_frq_grids():
+    frqs = {}
+    i = 1
+    for key in frquestions:
+        if isinstance(frquestions[key][1], str):
+            frqs[key] = [
+                create_frq_string(frquestions, i),
+                create_expanded_button(frquestions[key][2], "primary", "550px"),
+            ]
+        else:
+            frqs[key] = [
+                create_frq_int(frquestions, i),
+                create_expanded_button(frquestions[key][2], "primary", "550px"),
+            ]
+        i += 1
+
+    return frqs
+
+
+frqs = create_frq_grids()
+
+
+def frq_check(key):
+    qlist = frquestions[key]
+    if frqs[key][0][0, 1].value == qlist[1]:
+        frqs[key][0][0, 2].button_style = "success"
+    else:
+        frqs[key][0][0, 2].button_style = "danger"
+
+
+def print_frq_grid(question_number):
+    key = "Q" + str(question_number)
+    frqs[key][0][0, 2].on_click(check_frq)
+    # Create the head tab
+    # Display the widgets
+    display(widgets.VBox([frqs[key][1], frqs[key][0]]))

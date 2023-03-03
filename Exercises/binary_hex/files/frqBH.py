@@ -85,65 +85,19 @@ The dictionary that holds the questions and the answers.
 Answers can be String or Int type. This does change the function used to create the grid object as shown
 """
 frquestions = {
-    "Q0": ["Convert this binary number to decimal: 10110", 22],
-    "Q1": ["Convert this binary number to decimal: 10001", 17],
-    "Q2": ["Convert this binary number to decimal: 101011", 43],
-    "Q3": ["Convert this decimal number to binary: 9", 1001],
-    "Q4": ["Convert this decimal number to binary: 21", 10101],
-    "Q5": ["Convert this decimal number to binary: 63", 111111],
-    "Q6": ["Convert this hexadecimal number to decimal: A3E", 2622],
-    "Q7": ["Convert this hexadecimal number to binary: 5B", 1011011],
-    "Q8": ["Convert this hexadecimal number to binary: C9", 11001001],
-    "Q9": ["Convert this decimal number to hexadecimal: 137", 89],
-    "Q10": ["Convert this binary number to hexadecimal: 10000011 ", 83],
-    "Q11": ["Convert this binary number to hexadecimal: 1011111011101111", "BEEF"],
+    "Q1": ["Convert this binary number to decimal: 10110", 22],
+    "Q2": ["Convert this binary number to decimal: 10001", 17],
+    "Q3": ["Convert this binary number to decimal: 101011", 43],
+    "Q4": ["Convert this decimal number to binary: 9", 1001],
+    "Q5": ["Convert this decimal number to binary: 21", 10101],
+    "Q6": ["Convert this decimal number to binary: 63", 111111],
+    "Q7": ["Convert this hexadecimal number to decimal: A3E", 2622],
+    "Q8": ["Convert this hexadecimal number to binary: 5B", 1011011],
+    "Q9": ["Convert this hexadecimal number to binary: C9", 11001001],
+    "Q10": ["Convert this decimal number to hexadecimal: 137", 89],
+    "Q11": ["Convert this binary number to hexadecimal: 10000011 ", 83],
+    "Q12": ["Convert this binary number to hexadecimal: 1011111011101111", "BEEF"],
 }
-frq_1 = create_frq_int(frquestions, 0, 400)
-
-frq_2 = create_frq_int(frquestions, 1, 400)
-
-frq_3 = create_frq_int(frquestions, 2, 400)
-
-frq_4 = create_frq_int(frquestions, 3, 400)
-
-frq_5 = create_frq_int(frquestions, 4, 400)
-
-frq_6 = create_frq_int(frquestions, 5, 400)
-frq_7 = create_frq_int(frquestions, 6, 400)
-frq_8 = create_frq_int(frquestions, 7, 400)
-
-frq_9 = create_frq_int(frquestions, 8, 400)
-frq_10 = create_frq_int(frquestions, 9, 400)
-
-
-frq_11 = create_frq_int(frquestions, 10, 400)
-
-frq_12 = create_frq_string(frquestions, 11, 400)
-
-
-frqs = {
-    "Q0": frq_1,
-    "Q1": frq_2,
-    "Q2": frq_3,
-    "Q3": frq_4,
-    "Q4": frq_5,
-    "Q5": frq_6,
-    "Q6": frq_7,
-    "Q7": frq_8,
-    "Q8": frq_9,
-    "Q9": frq_10,
-    "Q10": frq_11,
-    "Q11": frq_12,
-}
-
-
-def frq_check(key):
-    grid = frqs[key]
-    qlist = frquestions[key]
-    if grid[0, 1].value == qlist[1]:
-        grid[0, 2].button_style = "success"
-    else:
-        grid[0, 2].button_style = "danger"
 
 
 def check_frq(self):
@@ -151,15 +105,39 @@ def check_frq(self):
     frq_check(key)
 
 
-frq_1[0, 2].on_click(check_frq)
-frq_2[0, 2].on_click(check_frq)
-frq_3[0, 2].on_click(check_frq)
-frq_4[0, 2].on_click(check_frq)
-frq_5[0, 2].on_click(check_frq)
-frq_6[0, 2].on_click(check_frq)
-frq_7[0, 2].on_click(check_frq)
-frq_8[0, 2].on_click(check_frq)
-frq_9[0, 2].on_click(check_frq)
-frq_10[0, 2].on_click(check_frq)
-frq_11[0, 2].on_click(check_frq)
-frq_12[0, 2].on_click(check_frq)
+def create_frq_grids():
+    frqs = {}
+    i = 1
+    for key in frquestions:
+        if isinstance(frquestions[key][1], str):
+            frqs[key] = [
+                create_frq_string(frquestions, i),
+                create_expanded_button(key, "primary", "550px"),
+            ]
+        else:
+            frqs[key] = [
+                create_frq_int(frquestions, i),
+                create_expanded_button(key, "primary", "550px"),
+            ]
+        i += 1
+
+    return frqs
+
+
+frqs = create_frq_grids()
+
+
+def frq_check(key):
+    qlist = frquestions[key]
+    if frqs[key][0][0, 1].value == qlist[1]:
+        frqs[key][0][0, 2].button_style = "success"
+    else:
+        frqs[key][0][0, 2].button_style = "danger"
+
+
+def print_frq_grid(question_number):
+    key = "Q" + str(question_number)
+    frqs[key][0][0, 2].on_click(check_frq)
+    # Create the head tab
+    # Display the widgets
+    display(widgets.VBox([frqs[key][1], frqs[key][0]]))

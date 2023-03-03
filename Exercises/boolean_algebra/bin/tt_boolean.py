@@ -126,7 +126,7 @@ Create each Truth Table as a grid object. These can then be called from the note
 """
 
 
-def create_tt_4grids():
+def create_tt_grids():
     tt_grids = {}
     i = 1
     for key in tt:
@@ -135,12 +135,14 @@ def create_tt_4grids():
     return tt_grids
 
 
+tt_grids = create_tt_grids()
+
+
 def on_button_clicked(self):
-    CheckAnswer(tt_grids[self.tooltip], tt[self.tooltip][0], tt[self.tooltip][2])
+    CheckAnswer(tt_grids[self.tooltip][0], tt[self.tooltip][0], tt[self.tooltip][2])
 
 
 def print_tt_grid(question_number):
-    tt_grids = create_grids()
     key = "Q" + str(question_number)
     tt_grids[key][0][0, 3].on_click(on_button_clicked)
     # Create the head tab
