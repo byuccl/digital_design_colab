@@ -144,7 +144,7 @@ def on_button_clicked(self):
 
 def print_tt_grid(question_number):
     key = "Q" + str(question_number)
-    tt_grids[key][0][0, 3].on_click(on_button_clicked)
+    tt_grids[key][0][0, -1].on_click(on_button_clicked)
     # Create the head tab
     # Display the widgets
     display(widgets.VBox([tt_grids[key][1], tt_grids[key][0]]))
