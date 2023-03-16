@@ -12,7 +12,7 @@ List
     [1] : The correct answer, MSB is the top row
 """
 tt = {
-    "Q1": [3, "Flip Flop", "01001100"],
+    "Q1": [3, "Flip Flop", "01001122"],
 }
 
 tt_ff = {
@@ -197,6 +197,9 @@ tt_ff_grids = create_tt_ff_grids()
 def on_button_clicked(self):
     CheckAnswer(tt_grids[self.tooltip][0], tt[self.tooltip][0], tt[self.tooltip][2])
 
+def on_button_clicked_ff(self):
+    CheckAnswer(tt_ff_grids[self.tooltip][0], tt_ff[self.tooltip][0], tt_ff[self.tooltip][2])
+
 
 def print_tt_grid(question_number):
     key = "Q" + str(question_number)
@@ -211,7 +214,7 @@ def print_tt_grid(question_number):
 
 def print_tt_ff_grid(question_number):
     key = "Q" + str(question_number)
-    tt_ff_grids[key][0][0, -1].on_click(on_button_clicked)
+    tt_ff_grids[key][0][0, -1].on_click(on_button_clicked_ff)
     # Create the head tab
     # Display the widgets
-    display(widgets.VBox([tt_grids[key][1], tt_grids[key][0]]))
+    display(widgets.VBox([tt_ff_grids[key][1], tt_ff_grids[key][0]]))
