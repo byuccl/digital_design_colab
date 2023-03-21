@@ -253,10 +253,10 @@ def create_three_grid(questionNumber):
 
     def change_color(self):
         if self.description == "1":
-            self.style = ButtonStyle(button_color="Green")
+            self.style = ButtonStyle(button_color="salmon")
             self.description = "0"
         else:
-            self.style = ButtonStyle(button_color="Yellow")
+            self.style = ButtonStyle(button_color="olive")
             self.description = "1"
 
     # Creates the first column
