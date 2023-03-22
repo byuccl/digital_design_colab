@@ -21,7 +21,7 @@ If you're new to this repository and are looking for a place to start, [this not
 
 |Category| Notebook| Link| Description
 |---|---|---|---|
-|Tutorial|Notebook Functionality|[![colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/byuccl/digital_design_colab2/blob/master/Tutorials/notebook_functionality/notebook_functionality.ipynb)|How to use Colab notebooks|
+|Tutorial|Notebook Functionality|[![colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/byuccl/digital_design_colab2/blob/master/Tutorials/notebook_functionality/notebook_functionality.ipynb)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|How to use Colab notebooks|
 |Lab|Labs Overview|[![colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/byuccl/digital_design_colab2/blob/master/Labs/labs_overview/labs_overview.ipynb)|words|
 |Lesson|Boolean Algebra| [![colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/byuccl/digital_design_colab2/blob/master/Exercises/boolean_algebra/boolean_algebra.ipynb)|Introduction to the boolean operators AND, OR, and NOT. Creating equations with these operators and performing analysis with truth tables.|
 |Tutorial|Copy And Save Notebook|[![colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/byuccl/digital_design_colab2/blob/master/Tutorials/copy_and_save_notebook/copy_and_save_notebook.ipynb)|blah|
