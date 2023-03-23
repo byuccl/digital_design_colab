@@ -86,38 +86,16 @@ Answers can be String or Int type. This does change the function used to create 
 The key is Q + Question Index. 
 """
 frquestions = {
-    "Q1": [
-        "What integer does this sign-magnitude number represent? `10101`",
-        -5,
-        "Question 1",
-    ],
-    "Q2": [
-        "What integer does this sign-magnitude number represent? `01110`?",
-        14,
-        "Question 2",
-    ],
-    "Q3": [
-        "What integer does this two's complement number represent? `10101`",
-        -11,
-        "Question 3",
-    ],
-    "Q4": [
-        "What integer does this two's complement number represent? `01110`",
-        14,
-        "Question 4",
-    ],
-    "Q5": [
-        "What is the inverse of the two's complement number? `10101`",
-        11,
-        "Question 5",
-    ],
-    "Q6": [
-        "What is the inverse of the twos complement value? `01110`",
-        -14,
-        "Question 6",
-    ],
-    "Q7": ["What is `1011` sign extended to 8 bits wide?", 11111011, "Question 7"],
-    "Q8": ["What is `0001` sign extended to 8 bits wide?", 1, "Question 8"],
+    "Q1": ["What is `1001` + `0110` in Binary? (Its unsigned)", 1111],
+    "Q2": ["What is `0111` + `0011` in Binary? (Its unsigned)", 1010],
+    "Q3": ["What is `1010101`+0101101` in Binary? (Its unsigned)", 10000010],
+    "Q4": ["What is the value of `1111` + `0100`? (Put 9999 for overflow)", 9999],
+    "Q5": ["What is the value of `1010` + `0111`? (Put 9999 for overflow)", 9999],
+    "Q6": ["What is `1001` + `0110` in Binary? (2's complement)", 1111],
+    "Q7": ["What is `0111` + `0011` in Binary? (2's complement)", 1010],
+    "Q8": ["What is `1010101`+0101010` in Binary? (2's complement)", 1111111],
+    "Q9": ["What is `1100` - `1001` in Binary? (2's complement)", 11],
+    "Q10": ["What is `0111` - `0011` in Binary? (2's complement)", 100],
 }
 
 
