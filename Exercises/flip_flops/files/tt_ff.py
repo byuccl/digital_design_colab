@@ -12,11 +12,11 @@ List
     [1] : The correct answer, MSB is the top row
 """
 tt = {
-    "Q1": [3, "Flip Flop", "01001122"],
+    "Q1": [3, "none", "01001100"],
 }
 
 tt_ff = {
-    "Q1": [3, "Flip Flop", "01001100"],
+    "Q1": [3, "Flip Flop", "01001122"],
 }
 
 
