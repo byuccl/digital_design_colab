@@ -1,4 +1,4 @@
-odeimport ipywidgets as widgets
+import ipywidgets as widgets
 from ipywidgets import GridspecLayout
 from ipywidgets import AppLayout, Button, Layout, jslink, IntText, IntSlider
 
@@ -12,11 +12,24 @@ def create_expanded_button(description, button_style, width="100px"):
 
 
 # creates variable grid size
-def create_grid(num_input, input_string, func):
+def create_grid(num_input, func):
     """
     - num_input = number of inputs in the function
     - input_string = a string of all the default values and input names that are passed in (ex: AB000011011)
     """
+    input_string = ""
+    if num_input == 2:
+        input_string = "AB00011011"
+        pass
+    elif num_input == 1:
+        input_string = "A01"
+        pass
+    elif num_input == 3:
+        input_string = "ABC000001010011100101110111"
+        pass
+    elif num_input == 4:
+        input_string = "ABCD0000000100100011010001010110011110001001101010111100110111101111"
+        pass
     num_row = (2**num_input) + 1
     num_col = num_input + 2
     grid = GridspecLayout(num_row, num_col, width=str(num_col * 117.5) + "px")
@@ -56,33 +69,33 @@ def CheckAnswer(grid, num_inputs, input):
             grid[i + 1, num_inputs + 1].description = "Wrong! Submit again"
 
 
-# populates default input values
-def populate():
-    pass
+# # populates default input values
+# def populate():
+#     pass
 
 # AND gate truth table creation
-grid1_1 = create_grid(2, 'AB00011011', 'F=AB')
+grid1_1 = create_grid(2,  'F=AB')
 
 # OR gate truth table creation
-grid1_2 = create_grid(2, 'AB00011011', 'F=A+B')
+grid1_2 = create_grid(2,  'F=A+B')
 
 # NOT gate truth table creation
-grid1_3 = create_grid(1, "A01", '!A')
+grid1_3 = create_grid(1, '!A')
 
 # NOR gate truth table creation
-grid1_4 = create_grid(2, 'AB00011011', 'F=NOR')
+grid1_4 = create_grid(2,  'F=NOR')
 
 # NAND gate truth table creatione
-grid1_5 = create_grid(2, 'AB00011011', 'F=NAND')
+grid1_5 = create_grid(2, 'F=NAND')
 
 # XOR gate truth table creation
-grid1_6 = create_grid(2, 'AB00011011', 'F=A^B')
+grid1_6 = create_grid(2, 'F=A^B')
 
 # XNOR gat truth table creatione
-grid1_7 = create_grid(2, 'AB00011011', 'F=~(A^B)')
+grid1_7 = create_grid(2,  'F=~(A^B)')
 
 # Harder question
-grid1_8 = create_grid(3,'ABC000001010011100101110111', 'F=!(AC)|(BA)')
+grid1_8 = create_grid(3, 'F=!(AC)|(BA)')
 
 # THIS CAN PROBABLY BE PLACED IN THE CREATE FUNCTION WITH F AS AN ARGUMENT ABCF 000 001 010 011 100 101 110 111
 
