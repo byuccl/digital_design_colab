@@ -1,0 +1,9 @@
+      // Input: ${SIGNAME}
+      num = convert(inputs[i++], ln);
+      if (!errorCheck(${SIGWIDTH}, num))
+         module.top->${SIGNAME} = num;
+      else {
+         std::cerr << "Input (" << num << ") on line " <<
+                   ln << " too large. Expected ${SIGWIDTH} bit value." << std::endl;
+        return 5;
+      }
