@@ -41,6 +41,4 @@ def import_source():
     import_text("arithmetic_top.stm")
     import_text("tb_add_8.cpp")
     import_text("tb_full_add.cpp")
-    import_text("tb_arithmtic_top.cpp")
- 
     cd("/content")
