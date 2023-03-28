@@ -58,11 +58,11 @@ ms_dict = {
         "C",
         "D",
         "E",
-        "ABC",
+        "BE",
         "Which States are Complete and Full?",
     ],
-    "2": ["A", "B", "C", "D", "E", "ABC", "Which States are Incomplete?"],
-    "3": ["A", "B", "C", "D", "E", "ABC", "Which States are Conflicting?"],
+    "2": ["A", "B", "C", "D", "E", "CD", "Which States are Incomplete?"],
+    "3": ["A", "B", "C", "D", "E", "AD", "Which States are Conflicting?"],
 }
 
 
