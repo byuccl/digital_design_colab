@@ -10,7 +10,7 @@ def cd(folder):
 
 def import_text(text):
     url = (
-        "https://raw.githubusercontent.com/byuccl/digital_design_colab2/master/Labs/arithmetic_lab/files/%s"
+        "https://raw.githubusercontent.com/byuccl/digital_design_colab2/master/Labs/seven_segment_lab/files/%s"
         % text
     )
     resp = requests.get(url)
@@ -33,12 +33,9 @@ def import_source():
     import_text("TBtemplate.txt")
     import_text("simTemplate.txt")
     import_text("simTemplate2.txt")
-    import_text("full_add.sv")
-    import_text("full_add.stm")
-    import_text("add_8.sv")
-    import_text("add_8.stm")
-    import_text("arithmetic_top.sv")
-    import_text("arithmetic_top.stm")
-    import_text("tb_full_add.cpp")
-    import_text("tb_add_8.cpp")
+    import_text("seven_segment.sv")
+    import_text("seven_segment.stm")
+    import_text("seven_segment_top.sv")
+    import_text("seven_segment_top.stm")
+    import_text("tb_seven_segment.cpp")
     cd("/content")
