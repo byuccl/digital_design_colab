@@ -10,7 +10,7 @@ def cd(folder):
 
 def import_text(text):
     url = (
-        "https://raw.githubusercontent.com/byuccl/digital_design_colab2/master/Labs/arithmetic_lab/files/%s"
+        "https://raw.githubusercontent.com/byuccl/digital_design_colab2/master/Labs/seven_segment_lab/files/%s"
         % text
     )
     resp = requests.get(url)
