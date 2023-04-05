@@ -1,6 +1,5 @@
 ||Lab|Link|Description|
 |---|---|---|---|
-|Intro Lab|XDC Files|[![colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/byuccl/digital_design_colab2/blob/master/Labs/xdc_lab/xdc_lab.ipynb)|Demonstrates how the XDC file works and how to use it for a personal project.|
 |Lab 1|Logic Gates|[![colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/byuccl/digital_design_colab2/blob/master/Labs/gates_lab/gates_lab.ipynb)|This lab teaches how to use Gate Level logic (and, or, not) and how the Waveforms work. It doesn't require a board.|
 |Lab 2|Dataflow System Verilog:|[![colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/byuccl/digital_design_colab2/blob/master/Labs/dataflow_lab/dataflow_lab.ipynb)|The user implements Dataflow system verilog in 4 functions in a simple project.|
 |Lab 3|Arithmetic|[![colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/byuccl/digital_design_colab2/blob/master/Labs/arithmetic_lab/arithmetic_lab.ipynb)|User implements an adder using multiple modules.|
