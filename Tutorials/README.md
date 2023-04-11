@@ -3,7 +3,6 @@ These notebooks are designed to provide explanations about Google Colabs and int
 |Notebook|Link|Description|
 |---|---|---|
 |Notebook Functionality|[![colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/byuccl/digital_design_colab2/blob/master/Tutorials/notebook_functionality/notebook_functionality.ipynb)|How to use Colab notebooks|
-|Copy And Save Notebook|[![colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/byuccl/digital_design_colab2/blob/master/Tutorials/copy_and_save_notebook/copy_and_save_notebook.ipynb)|blah|
 |Bash File System|[![colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/byuccl/digital_design_colab2/blob/master/Tutorials/bash_file_system/bash_file_system.ipynb)|How to view and navigate files in a notebook|
 |Verilog With VS Code|[![colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/byuccl/digital_design_colab2/blob/master/Tutorials/verilog_with_vs_code/verilog_with_vs_code.ipynb)|A better way to write verilog|
 |Simulation Tools|[![colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/byuccl/digital_design_colab2/blob/master/Tutorials/using_simulation_tools/using_simulation_tools.ipynb)|
