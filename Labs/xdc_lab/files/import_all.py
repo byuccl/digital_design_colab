@@ -10,7 +10,7 @@ def cd(folder):
 
 def import_text(text):
     url = (
-        "https://raw.githubusercontent.com/byuccl/digital_design_colab2/master/Labs/stopwatch_lab/files/%s"
+        "https://raw.githubusercontent.com/byuccl/digital_design_colab2/master/Labs/xdc_lab/files/%s"
         % text
     )
     resp = requests.get(url)
@@ -31,14 +31,4 @@ def import_packages():
 
 def import_source():
     cd("/content/tmp_code")
-    import_text("TBtemplate.txt")
-    import_text("simTemplate.txt")
-    import_text("simTemplate2.txt")
-    import_text("mod_counter.sv")
-    import_text("mod_counter.stm")
-    import_text("stopwatch.sv")
-    import_text("stopwatch.stm")
-    import_text("stopwatch_top.sv")
-    import_text("stopwatch_top.stm")
-    import_text("SevenSegmentControl.sv")
     cd("/content")
