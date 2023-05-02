@@ -20,7 +20,7 @@ List
     [1] : The correct answer, MSB is the top row
 """
 km = {
-    "Q1": [2, "A'*B + A'+B'", "1110"],
+    "Q1": [2, "A'B + A' + B'", "1110"],
     "Q2": [3, "ABC + B'C + A'C'", "11100101"],
     "Q3": [3, "A'B'C + AC + BC", "01010101"],
     "Q4": [4, "ABCD' + A'BCD' + BC'D + B +  BC'D' + C'D", "0100111101001111"],
@@ -340,6 +340,59 @@ def create_four_grid(questionNumber):
 
     return grid, header_button
 
+def create_two_grid(questionNumber):
+    """
+    Returns a grid for the Truth Table. Autosizes the gride to much the number of inputs
+    - num_input = number of inputs in the function. Can be from 1 to 4.
+    - input_string = a string of all the default values and input names that are passed in (ex: AB000011011)
+    """
+
+    corner = "   A\B"
+    column_headers = ["B'", "B"]
+    row_headers = ["A'", "A"]
+
+    tooltip = f"Q%d" % questionNumber
+    num_row = 3
+    num_col = 4
+    grid = GridspecLayout(num_row, num_col, width=str(num_col * 117.5) + "px")
+
+    def change_color(self):
+        if self.description == "1":
+            self.style = ButtonStyle(button_color="salmon")
+            self.description = "0"
+        else:
+            self.style = ButtonStyle(button_color="olive")
+            self.description = "1"
+
+    # Creates the first column
+    for i in range(1, num_row):
+        val = row_headers[i - 1]
+        grid[i, 0] = create_expanded_button(val, "primary")
+    # Creates the first row
+    for i in range(1, num_col - 1):
+        val = column_headers[i - 1]
+        grid[0, i] = create_expanded_button(val, "primary")
+
+    # creates the click to check button as well as the userinput section of the table
+    for i in range(1, num_row):
+        for j in range(1, num_col):
+            grid[i, j] = create_expanded_button("0", "info")
+            grid[i, j].on_click(change_color)
+    grid[0, num_col - 1] = create_expanded_button(
+        "Click to Check", "warning", width="150px", tooltip=tooltip
+    )
+
+    # creates the output section of the truth table to know if you're right or not
+    for i in range(1, num_row):
+        grid[i, num_col - 1] = create_expanded_button(" ", "warning", width="150px")
+    grid[0, 0] = create_expanded_button(corner, "info", width="100px")
+    header_button = create_expanded_button(
+        km[tooltip][1], "info", str(num_col * 117.5) + "px"
+    )
+
+    return grid, header_button
+
+
 
 def CheckAnswerFour(grid, input):
     """
@@ -377,6 +430,88 @@ def CheckAnswerFour(grid, input):
         else:
             grid[i_x + 1, -1].button_style = "Danger"
             grid[i_x + 1, -1].description = "Wrong! Submit again"
+          
+def CheckAnswerThree(grid, input):
+    """
+    Checks each input box and sees if it matches the answer. Then Tells the user which rows were wrong.
+    Parameters
+    ------
+    grid: The grid to be checked
+    num_inputs: The size of the grid, the number of inputs of the function.
+    input: The answer to the truth table
+
+    """
+    num_inputs = 2
+    index = 0
+    for i in range(0, 2):  # Row
+        i_x = i
+        error = 0
+        for j in range(0, 4):  # Column
+            j_x = j
+            if j == 2:
+                j_x = 3
+            if j == 3:
+                j_x = 2
+            try:
+
+              if grid[i_x + 1, j_x + 1].description == input[index]:
+                  pass
+              else:
+                  error = 1
+            except:
+              error = 1
+
+            index += 1
+        if error == 0:
+          try:
+            grid[i_x + 1, -1].button_style = "Success"
+            grid[i_x + 1, -1].description = "Correct!"
+          except:
+            pass
+        else:
+            grid[i_x + 1, -1].button_style = "Danger"
+            grid[i_x + 1, -1].description = "Wrong! Submit again"
+
+
+
+def CheckAnswerTwo(grid, input):
+    """
+    Checks each input box and sees if it matches the answer. Then Tells the user which rows were wrong.
+    Parameters
+    ------
+    grid: The grid to be checked
+    num_inputs: The size of the grid, the number of inputs of the function.
+    input: The answer to the truth table
+
+    """
+    num_inputs = 2
+    index = 0
+    for i in range(0, 2):  # Row
+        i_x = i
+        error = 0
+        for j in range(0, 2):  # Column
+            j_x = j
+
+            try:
+
+              if grid[i_x + 1, j_x + 1].description == input[index]:
+                  pass
+              else:
+                  error = 1
+            except:
+              error = 1
+
+            index += 1
+        if error == 0:
+          try:
+            grid[i_x + 1, -1].button_style = "Success"
+            grid[i_x + 1, -1].description = "Correct!"
+          except:
+            pass
+        else:
+            grid[i_x + 1, -1].button_style = "Danger"
+            grid[i_x + 1, -1].description = "Wrong! Submit again"
+
 
 
 """
@@ -391,6 +526,9 @@ def create_grid(question_number, input):
         return x
     elif input == 3:
         x = create_three_grid(question_number)
+        return x
+    elif input == 2:
+        x= create_two_grid(question_number)
         return x
 
 
@@ -408,7 +546,12 @@ km_grids = create_km_grids()
 
 
 def on_button_clicked(self):
+  if(len(km_grids[self.tooltip][0].children) > 20):
     CheckAnswerFour(km_grids[self.tooltip][0], km[self.tooltip][2])
+  elif(len(km_grids[self.tooltip][0].children) > 15):
+    CheckAnswerThree(km_grids[self.tooltip][0], km[self.tooltip][2])
+  else:
+    CheckAnswerTwo(km_grids[self.tooltip][0], km[self.tooltip][2])
 
 
 def print_km_grid(question_number):
