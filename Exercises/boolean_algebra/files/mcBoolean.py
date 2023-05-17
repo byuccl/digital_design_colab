@@ -70,15 +70,15 @@ mc_dict = {
         "B. A'C + A'B' + C",
         "C. A'C + A'B + B'C'",
         "D. A'B + B'C'",
-        "C",
+        "D",
         "Which of the following match the truth table?",
     ],
     "4": [
         "A. ABCD + A'B'C",
         "B. ABCD'+AB",
-        "C. ACD + ABD'",
+        "C. CD + ABD'",
         "D. AD' + ABC",
-        "B",
+        "C",
         "Which of the following match the truth table?",
     ],
 }
