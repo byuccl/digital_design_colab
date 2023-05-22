@@ -107,12 +107,12 @@ frquestions = {
         "Question 4",
     ],
     "Q5": [
-        "What is the inverse of the two's complement number? `10101`",
+        "What integer represents the inverse of the two's complement number? `10101`",
         11,
         "Question 5",
     ],
     "Q6": [
-        "What is the inverse of the twos complement value? `01110`",
+        "What integer represents the inverse of the twos complement number? `01110`",
         -14,
         "Question 6",
     ],
