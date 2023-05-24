@@ -1,4 +1,4 @@
-# Notebooks 2.0<br>
+# Digital Design Colab Notebooks<br>
 
 This repository contains [Google Colab](https://colab.research.google.com/) pages for learning about and developing digital circuits.
 This repository contains colab examples for:
