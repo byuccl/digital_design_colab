@@ -36,8 +36,8 @@ def check_answerms(self):
     """
     if self.current_answers == {}:
         return
-    for i in self.answer:
-        if i not in self.current_answers:
+    for i in self.current_answers:
+        if i not in self.answer:
             self.button_style = "Danger"
             self.description = "Wrong, Try Again!"
             return
