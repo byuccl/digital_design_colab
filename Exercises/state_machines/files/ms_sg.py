@@ -41,7 +41,7 @@ def check_answerms(self):
             self.button_style = "Danger"
             self.description = "Wrong, Try Again!"
             return
-    if len(self.current_answer) != len(self.answer):
+    if len(self.current_answers) != len(self.answer):
         self.button_style = "Danger"
         self.description = "Wrong, Try Again!"
         return
