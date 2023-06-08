@@ -724,8 +724,6 @@ def createSimulationWorkSpace(
             btnSaveCode,
             widgets.Label(""),
             widgets.Label(""),
-            widgets.Label(""),
-            widgets.Label(""),
             btnRestoreCode,
         ]
     )
