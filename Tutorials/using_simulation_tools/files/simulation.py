@@ -666,7 +666,7 @@ def overwriteSavedCode(self):
 
 
 def createSimulationWorkSpace(
-    initialContents=None, ht="125px", wid="500px", stht="125px", stwid="500px"
+    initialContents=None, ht="500px", wid="750px", stht="300px", stwid="750px"
 ):
     interpreterHomeDir = os.getcwd()
     code_file_path = interpreterHomeDir + "/tmp_code"
@@ -715,7 +715,6 @@ def createSimulationWorkSpace(
     rightPart = widgets.VBox(
         [
             widgets.Label(""),
-            widgets.Label(""),
             widgets.Label("Select Simulation Input Type"),
             selectHexBin,
             showCode,
@@ -727,10 +726,11 @@ def createSimulationWorkSpace(
             widgets.Label(""),
             widgets.Label(""),
             widgets.Label(""),
-            widgets.Label(""),
             btnRestoreCode,
         ]
     )
 
     # Show widgets
-    display(widgets.HBox([leftPart, rightPart]))
+    display(widgets.HBox([leftPart,
+                          widgets.Label(""),widgets.Label(""),widgets.Label(""),
+                          rightPart]))
