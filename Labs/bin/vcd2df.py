@@ -111,7 +111,7 @@ def vcd2dataframe(vcd_file):
 
 
 # @title dataframe to wavedrom
-def df2wd(filename):
+def df2wd(filename, type = "hex"):
     dataframe = vcd2dataframe("/content/tmp_code/logs/vlt_dump.vcd")
     string_list = []
     name_list = []
@@ -162,7 +162,11 @@ def df2wd(filename):
                 if current_value == last_value:
                     pass
                 else:
-                    int_string += str(current_value) + " "
+                    if(type == "hex"):
+                      curr_hex = hex(current_value)
+                      int_string += str(curr_hex) + " "
+                    elif(type == "decimal"):
+                      int_string += str(current_value) + " "
                 last_value = current_value
             new_line = (
                 '{ name: "'
