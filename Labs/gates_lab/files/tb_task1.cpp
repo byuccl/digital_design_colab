@@ -32,7 +32,7 @@ int main(int argc, char **argv, char **env)
     Verilated::traceEverOn(true);
     //Signals: btnr, sw
     set_values(0, 0, dut);
-    check(1, dut);
+    check(0, dut);
 
     delete dut;
     exit(EXIT_SUCCESS);
