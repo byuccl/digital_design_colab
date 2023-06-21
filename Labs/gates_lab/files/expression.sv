@@ -1,4 +1,4 @@
-module circuit(
+module expression(
    input wire logic A,
    input wire logic B,
    input wire logic C,
