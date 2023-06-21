@@ -37,7 +37,7 @@ int main(int argc, char **argv, char **env)
 
     //Signals: A, B, C, D
     set_values(0, 0, 0, 1, dut);
-    check(0, dut);
+    check(1, dut);
 
     //Signals: A, B, C, D
     set_values(0, 0, 1, 0, dut);
@@ -45,11 +45,11 @@ int main(int argc, char **argv, char **env)
 
     //Signals: A, B, C, D
     set_values(0, 0, 1, 1, dut);
-    check(0, dut);
+    check(1, dut);
 
     //Signals: A, B, C, D
     set_values(0, 1, 0, 0, dut);
-    check(0, dut);
+    check(1, dut);
 
     //Signals: A, B, C, D
     set_values(0, 1, 0, 1, dut);
@@ -57,7 +57,7 @@ int main(int argc, char **argv, char **env)
 
     //Signals: A, B, C, D
     set_values(0, 1, 1, 0, dut);
-    check(0, dut);
+    check(1, dut);
 
     //Signals: A, B, C, D
     set_values(0, 1, 1, 1, dut);
