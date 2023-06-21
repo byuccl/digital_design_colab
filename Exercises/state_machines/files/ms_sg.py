@@ -36,11 +36,15 @@ def check_answerms(self):
     """
     if self.current_answers == {}:
         return
-    for i in self.answer:
-        if i not in self.current_answers:
+    for i in self.current_answers:
+        if i not in self.answer:
             self.button_style = "Danger"
             self.description = "Wrong, Try Again!"
             return
+    if len(self.current_answers) != len(self.answer):
+        self.button_style = "Danger"
+        self.description = "Wrong, Try Again!"
+        return
     self.button_style = "Success"
     self.description = "Correct!"
 
@@ -58,11 +62,11 @@ ms_dict = {
         "C",
         "D",
         "E",
-        "BE",
-        "Which States are Complete and Full?",
+        "E",
+        "Which States are Complete?",
     ],
-    "2": ["A", "B", "C", "D", "E", "CD", "Which States are Incomplete?"],
-    "3": ["A", "B", "C", "D", "E", "AD", "Which States are Conflicting?"],
+    "2": ["A", "B", "C", "D", "E", "ABCD", "Which States are Incomplete?"],
+    "3": ["A", "B", "C", "D", "E", "ABCD", "Which States are Conflicting?"],
 }
 
 

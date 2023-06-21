@@ -50,20 +50,20 @@ question: This is used in the header
 """
 mc_dict = {
     "1": [
-        "A. 0101",
-        "B. 01010",
-        "C. 1010",
-        "D. Syntax Error",
+        "A. MUX",
+        "B. LUT",
+        "C. Not Possible",
+        "D. A and B",
         "A",
-        "What is the value of A[5:2] where A = 9’b101010101?",
+        "What should be used to implement an if/else statement?",
     ],
     "2": [
-        "A. 11010",
-        "B. 10100",
-        "C. 10111",
-        "D. 01000",
-        "D",
-        "What is the value of A << 3 where A  = 5’b11101 ?",
+        "A. MUX",
+        "B. LUT",
+        "C. Not Possible",
+        "D. A and B",
+        "B",
+        "What should primarily be used to implement the memory of a function?",
     ],
     "3": [
         "A. 10111",

@@ -91,10 +91,10 @@ frquestions = {
         "LUT",
         "Question 3",
     ],
-    "Q4": ["How many total input signals would an 8:1 MUX have?", 6, "Question 4"],
-    "Q5": ["How many gates would bbe needed for 2 different MUXs?", 6, "Question 5"],
+    "Q4": ["How many total input signals would an 8:1 MUX have including select signals?", 11, "Question 4"],
+    "Q5": ["How many 2:1 muxes are needed to implement an 8:1 mux", 6, "Question 5"],
     "Q6": [
-        "With 4 inputs, how many different values could a LUT hold?",
+        "With 4 select signals, how many different values could a LUT hold?",
         16,
         "Question 6",
     ],

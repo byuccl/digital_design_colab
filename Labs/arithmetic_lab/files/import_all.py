@@ -17,6 +17,17 @@ def import_text(text):
     with open(text, "wb") as f:
         f.write(resp.content)
 
+def import_from_bin(text):
+    url = (
+        "https://raw.githubusercontent.com/byuccl/digital_design_colab2/master/Labs/bin/%s"
+        % text
+    )
+    resp = requests.get(url)
+    with open(text, "wb") as f:
+        f.write(resp.content)
+
+
+
 def import_all():
     import_packages()
     import_source()
@@ -25,7 +36,7 @@ def import_all():
 def import_packages():
     cd("/content")
     import_text("simulation.py")
-    import_text("convertData.py")
+    import_from_bin("vcd2df.py")
 
 
 def import_source():
