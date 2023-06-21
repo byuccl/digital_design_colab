@@ -512,9 +512,9 @@ def CreateWidgets(contents, ht="125px", wid="500px", stht="125px", stwid="500px"
         description="Show source code below waveform", value=False, indent=False
     )
     # butt_submit = widgets.Button(description='Save code')
-    butt_show_waveform = widgets.Button(description="Run simulation")
-    butt_refresh_contents = widgets.Button(description="Restore code")
-    butt_save_code = widgets.Button(description="Save code")
+    butt_show_waveform = widgets.Button(description="Run simulation", layout=Layout(width="300px", border='solid 1px gray'))
+    butt_refresh_contents = widgets.Button(description="Restore code", layout=Layout(border='solid 1px gray'))
+    butt_save_code = widgets.Button(description="Save code", layout=Layout(border='solid 1px gray'))
     return (
         srcCodeWidget,
         stimulusWidget,
@@ -706,29 +706,24 @@ def createSimulationWorkSpace(
     cellDict[btnSaveCode] = sc
 
     # Draw cell widgets
-    leftPart = widgets.VBox(
+ topPart = widgets.HBox([
+        widgets.VBox([widgets.Label("Source code area:"), textSourceCode])
+    ])
+    bottomPart = widgets.HBox(
         [
-            widgets.VBox([widgets.Label("Source code area:"), textSourceCode]),
             widgets.VBox([widgets.Label("Simulation code area:"), textStimulus]),
-        ]
-    )
-    rightPart = widgets.VBox(
-        [
-            widgets.Label(""),
-            widgets.Label("Select Simulation Input Type"),
-            selectHexBin,
-            showCode,
-            # widgets.Label(''),
-            btnShowWaveform,
-            # widgets.Label(''),
-            btnSaveCode,
-            widgets.Label(""),
-            widgets.Label(""),
-            btnRestoreCode,
+            widgets.Label(""),widgets.Label(""),widgets.Label(""),widgets.Label(""),
+            widgets.VBox([
+                widgets.Label(""),
+                widgets.HBox([btnSaveCode,btnRestoreCode]),
+                widgets.Label(""),
+                widgets.Label("Select Simulation Input Type"),
+                selectHexBin,
+                showCode,
+                btnShowWaveform,
+            ])
         ]
     )
 
     # Show widgets
-    display(widgets.HBox([leftPart,
-                          widgets.Label(""),widgets.Label(""),widgets.Label(""),
-                          rightPart]))
+    display(widgets.VBox([topPart, bottomPart]))
