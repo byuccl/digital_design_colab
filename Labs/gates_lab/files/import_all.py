@@ -35,6 +35,8 @@ def import_source():
     import_text("simTemplate2.txt")
     import_text("circuit.stm")
     import_text("circuit.sv")
+    import_text("tb_task1.cpp")
+    import_text("tb_task2.cpp")
     import_text("expression.stm")
     import_text("expression.sv")
     cd("/content")
