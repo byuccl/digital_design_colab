@@ -706,7 +706,7 @@ def createSimulationWorkSpace(
     cellDict[btnSaveCode] = sc
 
     # Draw cell widgets
- topPart = widgets.HBox([
+    topPart = widgets.HBox([
         widgets.VBox([widgets.Label("Source code area:"), textSourceCode])
     ])
     bottomPart = widgets.HBox(
