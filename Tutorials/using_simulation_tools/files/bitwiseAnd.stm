@@ -1,17 +1,9 @@
 // On this line with put "comb" for combinational logic
-// On this line put the names on the input signal separated 
-// by spaces
-// The rest of the lines will values separated by spaces to 
-// match the input signals
-// You want to test different combinations of inputs to see 
-// what the result is
-// For example, try starting with all signals set to 0 on 
-// this line
-// Now try giving the switches values, but not pressing 
-// the button
-// Now pressing the button while leaving the switch values 
-// the same
-// Now change the switch values while leaving the 
-// button pressed
-// Now unpress the button while leaving the switch values 
-// the same
+// On this line put the names on the input signal separated by spaces
+// The rest of the lines will values separated by spaces to match the input signals
+// You want to test different combinations of inputs to see what the result is
+// For example, try starting with all signals set to 0 on this line
+// Now try giving the switches values, but not pressing the button
+// Now pressing the button while leaving the switch values the same
+// Now change the switch values while leaving the button pressed
+// Now unpress the button while leaving the switch values the same
