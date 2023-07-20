@@ -179,12 +179,12 @@ def QuestionSevenCheck():
 
 
 buttons = [
-    create_expanded_button("Check 2"),
-    create_expanded_button("Check 3"),
-    create_expanded_button("Check 4"),
-    create_expanded_button("Check 5"),
-    create_expanded_button("Check 6"),
-    create_expanded_button("Check 7"),
+    create_expanded_button("Check 2","primary"),
+    create_expanded_button("Check 3", "primary"),
+    create_expanded_button("Check 4", "primary"),
+    create_expanded_button("Check 5", "primary"),
+    create_expanded_button("Check 6", "primary"),
+    create_expanded_button("Check 7", "primary"),
 ]
 
 
