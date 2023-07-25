@@ -662,9 +662,11 @@ def refreshContentsClicked(self):
 def readFromDriveClicked(self):
     sc = cellDict[self]
     assert sc is not None, "Internal error with cellDict"
-    code, stim = readContents(sc.contents)
+    drive.mount('/content/drive')
+    code, stim = readContents("drive/MyDrive/test/"+sc.contents)
     sc.textSourceCode.value = code
     sc.textStimulus.value = stim
+    drive.unmount()
 
 
 def overwriteSavedCode(self):
@@ -681,6 +683,7 @@ def saveToDrive(self):
     print(sc.contents)
     drive.mount('/content/drive')
     file_location = "/content/drive/MyDrive/test/" + sc.contents
+    os.makedirs(os.path.dirname(file_location), exist_ok=True)
     with open(file_location + ".sv", "w") as f:
         f.write(sc.textSourceCode.value)
     with open(file_location + ".stm", "w") as f:
