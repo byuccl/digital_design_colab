@@ -666,7 +666,7 @@ def readFromDriveClicked(self):
     code, stim = readContents("drive/MyDrive/test/"+sc.contents)
     sc.textSourceCode.value = code
     sc.textStimulus.value = stim
-    drive.unmount()
+    drive.flush_and_unmount()
 
 
 def overwriteSavedCode(self):
