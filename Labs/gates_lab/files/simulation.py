@@ -8,6 +8,7 @@ import subprocess
 import ipywidgets as widgets
 from ipywidgets import GridspecLayout
 from ipywidgets import AppLayout, Button, Layout, jslink, IntText, IntSlider
+from google.colab import drive
 
 
 VerilogIO = namedtuple("VerilogIO", "dir nam wid")
@@ -654,6 +655,13 @@ def refreshContentsClicked(self):
     sc.textSourceCode.value = code
     sc.textStimulus.value = stim
 
+def readFromDriveClicked(self):
+    sc = cellDict[self]
+    assert sc is not None, "Internal error with cellDict"
+    code, stim = readContents(sc.contents)
+    sc.textSourceCode.value = code
+    sc.textStimulus.value = stim
+
 
 def overwriteSavedCode(self):
     sc = cellDict[self]
@@ -663,6 +671,17 @@ def overwriteSavedCode(self):
         f.write(sc.textSourceCode.value)
     with open(file_location + ".stm", "w") as f:
         f.write(sc.textStimulus.value)
+
+def saveToDrive(self):
+    sc = cellDict[self]
+    print(sc.contents)
+    drive.mount('/content/drive')
+    file_location = "/content/drive/MyDrive/test/" + sc.contents
+    with open(file_location + ".sv", "w") as f:
+        f.write(sc.textSourceCode.value)
+    with open(file_location + ".stm", "w") as f:
+        f.write(sc.textStimulus.value)
+    drive.flush_and_unmount()
 
 
 def createSimulationWorkSpace(
@@ -683,6 +702,8 @@ def createSimulationWorkSpace(
         btnShowWaveform,
         btnRestoreCode,
         btnSaveCode,
+        btnSaveToDrive,
+        btnRestoreFromDrive,
     ) = CreateWidgets(initialContents, ht, wid, stht, stwid)
     # print(textSourceCode.value)
     # print(textStimulus.value)
@@ -691,6 +712,8 @@ def createSimulationWorkSpace(
     btnShowWaveform.on_click(showWaveformClicked)
     btnRestoreCode.on_click(refreshContentsClicked)
     btnSaveCode.on_click(overwriteSavedCode)
+    btnSaveToDrive.on_click(saveToDrive)
+    btnRestoreFromDrive.on_click(readFromDriveClicked)
     # Register this cell's info
     sc = SimCell(
         textSourceCode,
