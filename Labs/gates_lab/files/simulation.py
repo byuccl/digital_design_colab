@@ -731,6 +731,8 @@ def createSimulationWorkSpace(
     cellDict[btnShowWaveform] = sc
     cellDict[btnRestoreCode] = sc
     cellDict[btnSaveCode] = sc
+    cellDict[btnSaveToDrive] = sc
+    cellDict[btnRestoreFromDrive] = sc
 
     # Draw cell widgets
     topPart = widgets.HBox([
@@ -743,6 +745,7 @@ def createSimulationWorkSpace(
             widgets.VBox([
                 widgets.Label(""),
                 widgets.HBox([btnSaveCode,btnRestoreCode]),
+                widgets.HBox([btnSaveToDrive,btnRestoreFromDrive]),
                 widgets.Label(""),
                 widgets.Label("Select Simulation Input Type"),
                 selectHexBin,
