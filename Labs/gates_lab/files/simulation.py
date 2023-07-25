@@ -516,6 +516,8 @@ def CreateWidgets(contents, ht="125px", wid="500px", stht="125px", stwid="500px"
     butt_show_waveform = widgets.Button(description="Run simulation", layout=Layout(width="300px", border='solid 1px gray'))
     butt_refresh_contents = widgets.Button(description="Restore code", layout=Layout(border='solid 1px gray'))
     butt_save_code = widgets.Button(description="Save code", layout=Layout(border='solid 1px gray'))
+    butt_save_drive_code = widgets.Button(description="Save code to Drive", layout=Layout(border='solid 1px gray'))
+    butt_load_drive_code = widgets.Button(description="Load code from Drive", layout=Layout(border='solid 1px gray'))
     return (
         srcCodeWidget,
         stimulusWidget,
@@ -525,6 +527,8 @@ def CreateWidgets(contents, ht="125px", wid="500px", stht="125px", stwid="500px"
         butt_show_waveform,
         butt_refresh_contents,
         butt_save_code,
+        butt_save_drive_code,
+        butt_load_drive_code
     )
 
 
