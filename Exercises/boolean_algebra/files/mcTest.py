@@ -31,7 +31,8 @@ def create_expanded_button(description, button_style, width="400px"):
 # function of creating grid layout
 def create_grid(options):
     grid = GridspecLayout(len(options)+1, 3, width="470px")
-    for i in range(len(options)):
+    num = len(options)
+    for i in range(len(num)):
         grid[i,0] = create_expanded_button(options[i], "primary")
     grid[(len(options)), 0] = create_expanded_button("Submit", "Danger"); 
     return grid
