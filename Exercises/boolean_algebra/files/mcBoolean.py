@@ -40,3 +40,7 @@ mc_dict = {
     ],
 }
 
+
+def get_data():
+  return mc_dict
+
