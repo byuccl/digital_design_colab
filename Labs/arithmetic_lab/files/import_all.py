@@ -38,9 +38,9 @@ def import_packages():
     import_text("simulation.py")
     import_from_bin("vcd2df.py")
 
-
 def import_source():
     cd("/content/tmp_code")
+    import_from_bin("errorFeedback.py")
     import_text("TBtemplate.txt")
     import_text("simTemplate.txt")
     import_text("simTemplate2.txt")

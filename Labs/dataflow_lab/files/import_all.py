@@ -16,6 +16,7 @@ def import_text(text):
     resp = requests.get(url)
     with open(text, "wb") as f:
         f.write(resp.content)
+
 def import_from_bin(text):
     url = (
         "https://raw.githubusercontent.com/byuccl/digital_design_colab2/master/Labs/bin/%s"
