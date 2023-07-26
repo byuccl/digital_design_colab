@@ -76,7 +76,7 @@ def multiple_choice4(key, dictionary):
 
     def change_color(self):
         current_btn = int(self.layout.grid_area[-1])
-        for i in range(options):
+        for i in range(len(options)):
             grid[i, 0].button_style = "primary"
         grid[current_btn - 1, 0].button_style = "info"
         grid[answer_loc, 0].current_answer = self.description
