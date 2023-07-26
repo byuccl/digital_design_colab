@@ -3,7 +3,6 @@ from IPython.display import IFrame, display, HTML
 import ipywidgets as widgets
 from ipywidgets import GridspecLayout
 from ipywidgets import AppLayout, Button, Layout, jslink, IntText, IntSlider
-import mcTemplate
 
 mc_dict = {}
 mc_grids = {}
