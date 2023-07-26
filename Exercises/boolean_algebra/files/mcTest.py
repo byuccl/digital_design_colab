@@ -32,7 +32,7 @@ def create_expanded_button(description, button_style, width="400px"):
 def create_grid(options):
     grid = GridspecLayout(len(options)+1, 3, width="470px")
     num = len(options)
-    for i in range(len(num)):
+    for i in range(num):
         grid[i,0] = create_expanded_button(options[i], "primary")
     grid[(len(options)), 0] = create_expanded_button("Submit", "Danger"); 
     return grid
@@ -112,8 +112,42 @@ def print_mc_grid(question_number):
 
 
 def main():
+    test = {
+    "1": [
+        ["A. A' * B",
+        "B. A' + B",
+        "C. A' + B",
+        "D. A' + B'",],
+        "D",
+        "Which of the following match the truth table?",
+    ],
+    "2": [
+        ["A. BC + AC",
+        "B. A'B + AB",
+        "C. AC + A'B",
+        "D. AB' + AC",],
+        "C",
+        "Which of the following match the truth table?",
+    ],
+    "3": [
+        ["A. A' + B'C'",
+        "B. A'C + A'B' + C",
+        "C. A'C + A'B + B'C'",
+        "D. A'B + B'C'",],
+        "D",
+        "Which of the following match the truth table?",
+    ],
+    "4": [
+        ["A. ABCD + A'B'C",
+        "B. ABCD'+AB",
+        "C. CD + ABD'",
+        "D. AD' + ABC",],
+        "C",
+        "Which of the following match the truth table?",
+    ],
+}
     #Test that the create multiple choice dictionary function works
-    create_mc_dict(['1','2','3','4'], ["who", "what", "when", "where"], [['1','2','3','4'],['5','6','7','8'],['9','10','11','12'],['13','14','15','16']], ['1','5','9','13'])
+    create_mc_dict(test)
     print(mc_dict)
     print_mc_grid(1)
    
