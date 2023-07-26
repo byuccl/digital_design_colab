@@ -9,10 +9,15 @@ mc_dict = {}
 mc_grids = {}
 
 # Create multiple choice dictionary used by other functions 
-def create_mc_dict(numbers, questions, options, answers):
+# def create_mc_dict(numbers, questions, options, answers):
+#     global mc_dict, mc_grids
+#     for i in range(len(numbers)):
+#         mc_dict[numbers[i]] = [options[i], answers[i], questions[i]]
+#     mc_grids = create_mc_grids()
+
+def create_mc_dict(dictionary):
     global mc_dict, mc_grids
-    for i in range(len(numbers)):
-        mc_dict[numbers[i]] = [options[i], answers[i], questions[i]]
+    mc_dict = dictionary
     mc_grids = create_mc_grids()
    
 
