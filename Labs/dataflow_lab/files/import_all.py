@@ -10,7 +10,7 @@ def cd(folder):
 
 def import_text(text):
     url = (
-        "https://raw.githubusercontent.com/byuccl/digital_design_colab2/master/Labs/dataflow_lab/files/%s"
+        "https://raw.githubusercontent.com/byuccl/digital_design_colab/master/Labs/dataflow_lab/files/%s"
         % text
     )
     resp = requests.get(url)
@@ -19,24 +19,29 @@ def import_text(text):
 
 def import_from_bin(text):
     url = (
-        "https://raw.githubusercontent.com/byuccl/digital_design_colab2/master/Labs/bin/%s"
+        "https://raw.githubusercontent.com/byuccl/digital_design_colab/master/Labs/bin/%s"
         % text
     )
     resp = requests.get(url)
     with open(text, "wb") as f:
         f.write(resp.content)
 
+def import_all():
+    import_packages()
+    import_source()
+
 def import_packages():
     cd("/content")
-    import_text("simulation.py")
-    import_from_bin("vcd2df.py")
+    import_from_bin("simulation.py")
+    import_from_bin("vcd2wd.py")
 
 
 def import_source():
     cd("/content/tmp_code")
-    import_text("TBtemplate.txt")
-    import_text("simTemplate.txt")
-    import_text("simTemplate2.txt")
+    import_from_bin("errorFeedback.py")
+    import_from_bin("TBtemplate.txt")
+    import_from_bin("simTemplate.txt")
+    import_from_bin("simTemplate2.txt")
     import_text("function1.sv")
     import_text("function1.stm")
     import_text("function2.sv")
