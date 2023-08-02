@@ -10,7 +10,7 @@ mc_dict = {
         "B. The state is incomplete and will cause a latch",
         "C. The State is Correct",
         "D. Syntax Error will be thrown", 
-        "E, this is a test],
+        "E, this is a test"],
         "A",
         "For the code above, is there an error?",
     ],
