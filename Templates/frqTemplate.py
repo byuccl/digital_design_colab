@@ -8,10 +8,15 @@ Answers can be String or Int type. This does change the function used to create 
 The key is Q + Question Index. 
 """
 frquestions = {}
+frqs = {}
+
+
+
 
 def create_frq_dictionary(dictionary):
-    global frquestions
+    global frquestions, frqs 
     frquestions = dictionary
+    frqs = create_frq_grids()
 
 
 def create_expanded_button(description, button_style, width="auto", tooltip=""):
@@ -112,10 +117,6 @@ def create_frq_grids():
         i += 1
 
     return frqs
-
-
-frqs = create_frq_grids()
-
 
 def frq_check(key):
     qlist = frquestions[key]
