@@ -4,6 +4,22 @@ import ipywidgets as widgets
 from ipywidgets import GridspecLayout
 from ipywidgets import AppLayout, Button, Layout, jslink, IntText, IntSlider
 
+mc_dict = {}
+mc_grids = {}
+
+# Create multiple choice dictionary used by other functions 
+# def create_mc_dict(numbers, questions, options, answers):
+#     global mc_dict, mc_grids
+#     for i in range(len(numbers)):
+#         mc_dict[numbers[i]] = [options[i], answers[i], questions[i]]
+#     mc_grids = create_mc_grids()
+
+def create_mc_dict(dictionary):
+    global mc_dict, mc_grids
+    mc_dict = dictionary
+    mc_grids = create_mc_grids()
+   
+
 # function of creating button widget
 def create_expanded_button(description, button_style, width="400px"):
     return Button(
@@ -12,17 +28,14 @@ def create_expanded_button(description, button_style, width="400px"):
         layout=Layout(height="auto", width=width),
     )
 
-
 # function of creating grid layout
-def create_grid(A, B, C, D):
-    grid = GridspecLayout(5, 3, width="470px")
-    grid[0, 0] = create_expanded_button(A, "primary")
-    grid[1, 0] = create_expanded_button(B, "primary")
-    grid[2, 0] = create_expanded_button(C, "primary")
-    grid[3, 0] = create_expanded_button(D, "primary")
-    grid[4, 0] = create_expanded_button("Submit", "Danger")
+def create_grid(options):
+    grid = GridspecLayout(len(options)+1, 3, width="470px")
+    num = len(options)
+    for i in range(num):
+        grid[i,0] = create_expanded_button(options[i], "primary")
+    grid[(len(options)), 0] = create_expanded_button("Submit", "Danger"); 
     return grid
-
 
 def check_answermc4(self):
     """
@@ -41,81 +54,6 @@ def check_answermc4(self):
         self.button_style = "Danger"
         self.description = "Wrong, Try Again!"
 
-
-"""
-key: The question number
-pair: This should be a list. indexes 0-3 are the choices. 4 is the answer. 5 is the question
-answer: This must be the same str value as the choice
-question: This is used in the header
-"""
-mc_dict = {
-    "1": [
-        "A. 0101",
-        "B. 01010",
-        "C. 1010",
-        "D. Syntax Error",
-        "A",
-        "What is the value of A[5:2] where A = 9’b101010101?",
-    ],
-    "2": [
-        "A. 11010",
-        "B. 10100",
-        "C. 10111",
-        "D. 01000",
-        "D",
-        "What is the value of A << 3 where A  = 5’b11101 ?",
-    ],
-    "3": [
-        "A. 10111",
-        "B. 11101",
-        "C. 101",
-        "D. Syntax Error",
-        "A",
-        "What is the Value of {A,B} where A = 3’b101 and B = 2’11?",
-    ],
-    "4": [
-        "A. 1010",
-        "B. 111000",
-        "C. 101010",
-        "D. Syntax Error",
-        "C",
-        "What is the value of {3{2’b10}}?",
-    ],
-    "5": [
-        "A.logic input [3:0] x",
-        "B. logic [3:0] input x",
-        "C. input logic x [3:0]",
-        "D. input logic [3:0] x",
-        "D",
-        "Which signal is defined correctly?",
-    ],
-    "6": [
-        "A 1’b1",
-        "B. 1’b0",
-        "C. An Error will be thrown",
-        "D. Undefined",
-        "C",
-        "What is the value of x from the code above?",
-    ],
-    "7": [
-        "A. 1’b1",
-        "B. 1’b0",
-        "C. 2’b11",
-        "D. An Error will be thrown",
-        "A",
-        "What is the value of x from the above code?",
-    ],
-    "8": [
-        "A. 4'b0001",
-        "B. 4'b0011",
-        "C. 4'b0111",
-        "D. 4'b1001",
-        "D",
-        "What is the value of x in the above code?",
-    ],
-}
-
-
 def multiple_choice4(key, dictionary):
     """
     Creates a multiple choice widget that has 4 options.
@@ -124,29 +62,28 @@ def multiple_choice4(key, dictionary):
     grid: The grid that has been set up and can be shown
     header_button: sets the header_button that houses the question description
     """
-    answers = dictionary[key]
-    question = answers[5]
-    A = answers[0]
-    B = answers[1]
-    C = answers[2]
-    D = answers[3]
-    grid = create_grid(A, B, C, D)
-    correct_answer = answers[4]
-    setattr(grid[4, 0], "answer", correct_answer)
+    data = dictionary[key]
+    question = data[2]
+    options = data[0]
+    answer_loc = len(options); 
+
+    grid = create_grid(options)
+    correct_answer = data[1]
+    setattr(grid[answer_loc, 0], "answer", correct_answer)
     current_answer = 0
-    setattr(grid[4, 0], "current_answer", 0)
-    grid[4, 0].button_style = "Warning"
+    setattr(grid[answer_loc, 0], "current_answer", 0)
+    grid[answer_loc, 0].button_style = "Warning"
 
     def change_color(self):
         current_btn = int(self.layout.grid_area[-1])
-        for i in range(0, 4):
+        for i in range(len(options)):
             grid[i, 0].button_style = "primary"
         grid[current_btn - 1, 0].button_style = "info"
-        grid[4, 0].current_answer = self.description
+        grid[answer_loc, 0].current_answer = self.description
 
-    for i in range(0, 4):
+    for i in range(len(options)):
         grid[i, 0].on_click(change_color)
-    grid[4, 0].on_click(check_answermc4)
+    grid[answer_loc, 0].on_click(check_answermc4)
     header_button = create_expanded_button(question, "info", "465px")
     return grid, header_button
 
@@ -159,11 +96,8 @@ def create_mc_grids():
         i += 1
     return mc_grids
 
-
-mc_grids = create_mc_grids()
-
-
 def print_mc_grid(question_number):
+    global mc_grids
     key = str(question_number)
     # Create the head tab
     widgets.VBox(
@@ -174,3 +108,51 @@ def print_mc_grid(question_number):
         ]
     )
     display(widgets.VBox([mc_grids[key][1], mc_grids[key][0]]))
+
+
+
+def main():
+    test = {
+    "1": [
+        ["A. A' * B",
+        "B. A' + B",
+        "C. A' + B",
+        "D. A' + B'",],
+        "D",
+        "Which of the following match the truth table?",
+    ],
+    "2": [
+        ["A. BC + AC",
+        "B. A'B + AB",
+        "C. AC + A'B",
+        "D. AB' + AC",],
+        "C",
+        "Which of the following match the truth table?",
+    ],
+    "3": [
+        ["A. A' + B'C'",
+        "B. A'C + A'B' + C",
+        "C. A'C + A'B + B'C'",
+        "D. A'B + B'C'",],
+        "D",
+        "Which of the following match the truth table?",
+    ],
+    "4": [
+        ["A. ABCD + A'B'C",
+        "B. ABCD'+AB",
+        "C. CD + ABD'",
+        "D. AD' + ABC",],
+        "C",
+        "Which of the following match the truth table?",
+    ],
+}
+    #Test that the create multiple choice dictionary function works
+    create_mc_dict(test)
+    print(mc_dict)
+    print_mc_grid(1)
+   
+
+# Check if the script is being run as the main program
+if __name__ == "__main__":
+    # Call the main function when the script is run directly
+    main()
