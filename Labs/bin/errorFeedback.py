@@ -30,6 +30,44 @@ include ${F4PGA_EXAMPLES_ROOT}/f4pga-examples/common/common.mk
 """
 }
 
+def print_compiled_info(out):
+    warnings = re.findall(r"\[WRN:.*\n", out)
+    print("Your design compiled successfully with {} warning{}:".format(len(warnings), ("" if len(warnings) == 1 else "s")))
+    print()
+    for warn in warnings:
+        print(warn)
+    print('-'*75)
+    print("Design Statistics:\n")
+    design_stats_beg = out.find("Number of wires")
+    design_stats_end = out.find("38. Executing ATTRMAP pass (move or copy attributes).")
+    print(out[design_stats_beg-3:design_stats_end-1])
+    print('-'*75)
+    print("Circuit Statistics")
+    circuit_stats_beg = out.find("Circuit Statistics:")
+    circuit_stats_end = out.find("Build Timing Graph\n")
+    print(out[circuit_stats_beg+19:circuit_stats_end])
+    print('-'*75)
+    utilization_beg = out.find("Device Utilization:")
+    utilization_end = out.find("# Build Device Grid took")
+    utilization = out[utilization_beg:utilization_end]
+    utilization = utilization.splitlines()
+    section = []
+    for line in utilization:
+        if line.find("Device Utilization:") != -1:
+            print(line)
+            print()
+        elif line.find("Physical Tile") != -1:
+            if len(section) > 1:
+                for sentence in section:
+                    print(sentence)
+            section = []
+            section.append(line)
+        else:
+            if line.find("0.00") == -1:
+                section.append(line)
+    for sentence in section:
+        print(sentence)
+
 def search_stderr(err):
     error_start = err.find("ERROR")
     if error_start == -1:
@@ -39,7 +77,7 @@ def search_stderr(err):
     error = err[error_start:error_end]
     return error
 
-def search_stdout_surelog(out):
+def search_parse_error(out):
     error_start = out.find("SNT:")
     if error_start == -1:
         error_start = out.find("ERR:")
@@ -50,21 +88,35 @@ def search_stdout_surelog(out):
     error = out[error_start+12:error_end]
     return error
 
-def run_main():
-    p = subprocess.run(["make", "SURELOG_CMD='-parse'"], capture_output=True)
-    err = "".join([str(p.stderr).replace("\\t", "\t").replace("\\n", "\n")
-            .replace(r"\'", r"'").replace("\\\\", "\\")[2:-1]]).strip()
-    out = "".join([str(p.stdout).replace("\\t", "\t").replace("\\n", "\n")
-            .replace(r"\'", r"'").replace("\\\\", "\\")[2:-1]]).strip()
+def search_tcl_error(out):
+    error_start = out.find("ERROR:")
+    if error_start == -1:
+        return ""
+    
+    error_end = out.find("\n", error_start)
+    error = out[error_start:error_end]
+    return error
 
+def run_main():
+    with open('error.txt', 'r') as f:
+        lines = f.readlines()
+        err = ''.join(lines)
+    with open('compile.txt', 'r') as f:
+            lines = f.readlines()
+            out = ''.join(lines)
+    
     if err == "":
-        print("Your design compiled successfully")
+        print_compiled_info(out)
         return
 
     error = search_stderr(err)
     
     if error == "ERROR: Error when parsing design. Aborting!":
-        error = error + "\n" + search_stdout_surelog(out)
+        error = error + "\n" + search_parse_error(out)
+
+    if error == "ERROR: TCL interpreter returned an error: Yosys command produced an error":
+        error = error + "\n" + search_tcl_error(out)
+
 
     for pattern in errors_dict:
         if re.search(pattern, error) != None:
@@ -74,9 +126,6 @@ def run_main():
             return
     
     print(error)
-    
-
-
 
 if __name__ == "__main__":
     run_main()
