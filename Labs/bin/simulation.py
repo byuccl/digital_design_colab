@@ -161,6 +161,7 @@ def generate(
     processClockWaveform=True,
     hscale=1,
     nameOrder="",
+    configFile=""
 ):
     """
     Generate a C++ object of verilog/systemverilog code using verilator, toggle inputs on said C++ object,
@@ -208,6 +209,7 @@ def generate(
             + c
             + wv
             + verilogFile
+            + configFile
             + " -CFLAGS '-std=c++11' --exe sim___.cpp",  # create verilator object and link to .cpp
             stdout=subprocess.PIPE,
             stderr=subprocess.STDOUT,
@@ -411,6 +413,7 @@ def showWaveformClicked(self):
             Hex=hex,
             verbose=True,
             processClockWaveform=arrow,
+            configFile="config.vlt" if os.path.exists(sc.interpreterHomeDir + "/tmp_code/config.vlt") else ""
         )
     except Exception as e:
         return
