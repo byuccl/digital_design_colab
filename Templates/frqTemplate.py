@@ -107,12 +107,12 @@ def create_frq_grids():
         if isinstance(frquestions[key][1], str):
             frqs[key] = [
                 create_frq_string(frquestions, i),
-                create_expanded_button(frquestions[key][2], "primary", "550px"),
+                create_expanded_button(frquestions[key][1], "primary", "550px"),
             ]
         else:
             frqs[key] = [
                 create_frq_int(frquestions, i),
-                create_expanded_button(frquestions[key][2], "primary", "550px"),
+                create_expanded_button(frquestions[key][1], "primary", "550px"),
             ]
         i += 1
 
