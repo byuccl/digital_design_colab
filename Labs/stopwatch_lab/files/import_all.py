@@ -10,7 +10,7 @@ def cd(folder):
 
 def import_text(text):
     url = (
-        "https://raw.githubusercontent.com/byuccl/digital_design_colab/zach-branch/Labs/stopwatch_lab/files/%s"
+        "https://raw.githubusercontent.com/byuccl/digital_design_colab/master/Labs/stopwatch_lab/files/%s"
         % text
     )
     resp = requests.get(url)
@@ -19,7 +19,7 @@ def import_text(text):
 
 def import_from_bin(text):
     url = (
-        "https://raw.githubusercontent.com/byuccl/digital_design_colab/zach-branch/Labs/bin/%s"
+        "https://raw.githubusercontent.com/byuccl/digital_design_colab/master/Labs/bin/%s"
         % text
     )
     resp = requests.get(url)
