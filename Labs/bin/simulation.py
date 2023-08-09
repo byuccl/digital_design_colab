@@ -413,7 +413,7 @@ def showWaveformClicked(self):
             Hex=hex,
             verbose=True,
             processClockWaveform=arrow,
-            configFile="config.vlt" if os.path.exists(sc.interpreterHomeDir + "/tmp_code/config.vlt") else ""
+            configFile=" config.vlt" if os.path.exists(sc.interpreterHomeDir + "/tmp_code/config.vlt") else ""
         )
     except Exception as e:
         return
