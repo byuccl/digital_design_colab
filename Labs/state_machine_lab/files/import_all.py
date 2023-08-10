@@ -44,5 +44,6 @@ def import_source():
     import_text("quiz_dict01.py")
     import_text("state_machine.sv")
     import_text("state_machine.stm")
+    import_text("OneShot.sv")
     import_text("tt_widget.py")
     cd("/content")
