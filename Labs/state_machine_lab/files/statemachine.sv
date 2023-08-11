@@ -23,12 +23,10 @@ begin
     ns = SETUP;
   end else case (cs)
     SETUP: begin
-      led = 1;
       reset = 1;
       ns = IDLE;
     end
     IDLE: begin
-      led = 2;
       if (oneshotbtnc) begin
         ns = COMB1;
       end else begin
@@ -36,7 +34,7 @@ begin
       end
     end
     COMB1: begin
-      led = 3;
+      led = 1;
       if (oneshotQ && (sw == 16'b0000000000000001)) begin
         ns = COMB2;
       end else if (oneshotQ) begin
@@ -46,7 +44,7 @@ begin
       end
     end
     COMB2: begin
-      led = 4;
+      led = 2;
       if (oneshotQ && (sw == 16'b1111001111001111)) begin
         ns = COMB3;
       end else if (oneshotQ) begin
@@ -56,7 +54,7 @@ begin
       end
     end
     COMB3: begin
-      led = 5;
+      led = 3;
       if (oneshotQ && (sw == 16'b0100101010100111)) begin
         ns = UNLOCKED;
       end else if (oneshotQ) begin
