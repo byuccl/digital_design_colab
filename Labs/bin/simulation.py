@@ -660,8 +660,10 @@ def refreshContentsClicked(self):
     sc.textStimulus.value = stim
 
 def getDrivePath(contents):
-    if(contents.startswith("tmpcode/")):
-        return contents[7:]
+    if(contents.startswith("tmp_code/")):
+        return contents[9:]
+    if(contents.startswith("/tmp_code/")):
+        return contents[10:]
     return contents
 
 def readFromDriveClicked(self):
