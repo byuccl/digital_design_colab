@@ -2,6 +2,22 @@ import ipywidgets as widgets
 from ipywidgets import GridspecLayout
 from ipywidgets import AppLayout, Button, Layout, jslink, IntText, IntSlider
 
+"""
+The dictionary that holds the questions and the answers.
+Answers can be String or Int type. This does change the function used to create the grid object as shown
+The key is Q + Question Index. 
+"""
+frquestions = {}
+frqs = {}
+
+
+
+
+def create_frq_dictionary(dictionary):
+    global frquestions, frqs 
+    frquestions = dictionary
+    frqs = create_frq_grids()
+
 
 def create_expanded_button(description, button_style, width="auto", tooltip=""):
     """
@@ -79,15 +95,6 @@ def create_frq_string(list, index, q_width=500):
     grid[0, 2] = create_expanded_button("Check", "info", tooltip=tooltip)
     return grid
 
-
-"""
-The dictionary that holds the questions and the answers.
-Answers can be String or Int type. This does change the function used to create the grid object as shown
-The key is Q + Question Index. 
-"""
-frquestions = {"Q1": ["Example Question", "Answer", "Title"]}
-
-
 def check_frq(self):
     key = self.tooltip
     frq_check(key)
@@ -110,10 +117,6 @@ def create_frq_grids():
         i += 1
 
     return frqs
-
-
-frqs = create_frq_grids()
-
 
 def frq_check(key):
     qlist = frquestions[key]

@@ -48,4 +48,5 @@ def import_source():
     import_text("stopwatch_top.sv")
     import_text("stopwatch_top.stm")
     import_text("SevenSegmentControl.sv")
+    import_text("config.vlt")
     cd("/content")
