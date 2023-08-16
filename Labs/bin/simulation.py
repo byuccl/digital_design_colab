@@ -668,7 +668,7 @@ def readFromDriveClicked(self):
     sc = cellDict[self]
     assert sc is not None, "Internal error with cellDict"
     drive.mount('/content/drive')
-    code, stim = readContents("drive/MyDrive/"+getDrivePath(sc.contents))
+    code, stim = readContents("drive/MyDrive/DigitalDesignColab/"+getDrivePath(sc.contents))
     sc.textSourceCode.value = code
     sc.textStimulus.value = stim
     drive.flush_and_unmount()
@@ -689,7 +689,7 @@ def saveToDrive(self):
     sc = cellDict[self]
     print(sc.contents)
     drive.mount('/content/drive')
-    file_location = "/content/drive/MyDrive/test/" + getDrivePath(sc.contents)
+    file_location = "/content/drive/MyDrive/DigitalDesignColab/" + getDrivePath(sc.contents)
     os.makedirs(os.path.dirname(file_location), exist_ok=True)
     with open(file_location + ".sv", "w") as f:
         f.write(sc.textSourceCode.value)
