@@ -33,7 +33,7 @@ def import_all():
 def import_packages():
     cd("/content")
     import_from_bin("simulation.py")
-    import_from_bin("vcd2wd.py")
+    import_from_bin("convertData.py")
 
 def import_source():
     cd("/content/tmp_code")
