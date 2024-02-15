@@ -19,10 +19,13 @@ def create_7b_grid(): #Side Columns
  grid[1,0] = create_expanded_button(height="150px", width="50px", button_style="Danger")
  return grid
 
+x = create_7b_grid()
+y = create_7_grid()
+z= create_7b_grid()
+
 #Value Entry
 def cbi(): #Create Bounded Int
   return widgets.BoundedIntText(min = 0, max = 1, layout=Layout(height="auto", width="50px"))
-
 def create_value_grid():
   grid = GridspecLayout(2,8, width = '500px')
   for i in range (7):
@@ -33,7 +36,7 @@ def create_value_grid():
     i += 1
   grid[1,7] = Button(description = "Show", button_style = 'primary',layout=Layout(height="auto", width="100px"))
   return grid
-
+value_list = create_value_grid()
 def update_seven(self):
   if(value_list[1,6].value == 1):
     y[0,0].button_style = ''#a
@@ -70,3 +73,4 @@ def update_seven(self):
     y[2,0].button_style = ''
   else:
     y[2,0].button_style = 'Danger'
+value_list[1,7].on_click(update_seven)

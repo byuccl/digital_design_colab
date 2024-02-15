@@ -1,4 +1,7 @@
-#@title Seven Segment Decoder
+import ipywidgets as widgets
+from ipywidgets import GridspecLayout
+from ipywidgets import AppLayout, Button, Layout, jslink, IntText
+
 #Key
 seven_segment_decode =[
  "1000000",#0
