@@ -9,14 +9,17 @@ Structure:
     key: Q + question number.
 List 
     [0] : The number of inputs
-    [1] : The correct answer, MSB is the top row
+    [1] : Equation of truth table 
+    [2] : The correct answer, MSB is the top row
 """
-tt = {
-    "Q1": [2, "A'*B + A'+B'", "1110"],
-    "Q2": [3, "ABC + B'C + A'C'", "11100101"],
-    "Q3": [3, "A'B'C + AC + BC", "01010101"],
-    "Q4": [4, "ABCD' + A'BCD' + BC'D + B +  BC'D' + C'D", "0100111101001111"],
-}
+tt = {}
+tt_grids = {}
+
+def create_tt_dictionary(tt_input):
+   global tt, tt_grids
+   tt = tt_input; 
+   tt_grids = create_tt_grids()
+
 
 
 def create_expanded_button(description, button_style, width="100px", tooltip=""):
@@ -135,7 +138,7 @@ def create_tt_grids():
     return tt_grids
 
 
-tt_grids = create_tt_grids()
+
 
 
 def on_button_clicked(self):
