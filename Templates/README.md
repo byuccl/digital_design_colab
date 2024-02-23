@@ -14,6 +14,8 @@ Sequential Logic Lesson,
 Two's Compliment Lesson
 
 # mcTemplate Information
+Imports necessary libraries: importing pywidgets for creating interactive widgets in Jupyter notebooks
+
 
 # ms_template information:
 
