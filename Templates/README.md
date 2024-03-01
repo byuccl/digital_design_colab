@@ -13,6 +13,21 @@ Registers Lesson,
 Sequential Logic Lesson,
 Two's Compliment Lesson
 
+Creates and displays the interactive FRQs, allowing for questions with either integer or string answers. The interaction is currently designed to have the user input their answers into the widgets for immediate feedback. 
+
+Imports necessary libraries, such as ipywidgets
+
+Main Functionalities
+- Dictionary Initializiation: Defines a dictionary ('frquestions') that will hold the questions and answers. This dictionary is key to generating the question widgets, and typically just imports the questions from a seperate dictionary file
+- Creating FRQ Widgets: The core functionality of the widgets revolves around two types of question widgets
+    - Integer Answer FRQ: For questions that expect an integer answer, it creates a widget comprised of two buttons and a bounded integer text widget
+    - String Answer FRQ: For questions that expect an integer answer, it creates a widget with two buttons again and a text widget
+- Utility Functions: 
+        'create_expanded_button' - Creates the button widgets, along with setting the layout and formatting it 
+        'create_frq_int' and 'create'frq_string' - Generate the grid layout based on whether the answer type is an integer or string response
+- Checking Answers: There is the function 'frq_check' that is used to check to see whether the correct answer was inputted against the provided dictionary stored within 'frquestions'. It is set to provide immediate feedback as to whether the answer is correct or not. 
+
+
 # mcTemplate Information
 Imports necessary libraries: importing pywidgets for creating interactive widgets in Jupyter notebooks
 
