@@ -31,6 +31,12 @@ Main Functionalities
 # mcTemplate Information
 Imports necessary libraries: importing pywidgets for creating interactive widgets in Jupyter notebooks
 
+Main Functionalities:
+- Multiple Choice Dictionary: Initializes a dictionary through the usage of 'create_mc_dict(dictionary) (Typically importing from a seperate file) to store the multi-choice questions, the options, along with their answers. The dictionary is essential to generate the MCQs along with the corresponding interactive widgets
+- Widget Creation: The script defines functions (create_expanded button(), create_grid()) that create the button widgets and grid layouts. These widgets are then used to display the MCQ options and submit buttons
+- Multiple Choice Grid Generation: Generates a uniform grid layout depending on the amount of multiple choice questions and their options, through the usage of 'multiple_choice4(), create_grid(), and finally create_mc_grids using the multiple_choice4() and create_grid function
+- Display Function: 'print_mc_grid()' is used to then display the grid along with the header button that shows the question being asked. It combines both the questions and the answers into one, making it easier for users to understand and respond
+
 
 # ms_template information:
 
