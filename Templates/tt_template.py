@@ -104,6 +104,50 @@ def create_grid(questionNumber):
 
     return grid, header_button
 
+def create_grid_ff(questionNumber):
+    """
+    Returns a grid for the Truth Table. Autosizes the gride to much the number of inputs
+    - num_input = number of inputs in the function. Can be from 1 to 4.
+    - input_string = a string of all the default values and input names that are passed in (ex: AB000011011)
+    """
+
+    tooltip = f"Q%d" % questionNumber
+    num_input = tt[tooltip][0]
+ 
+    question_string = "f(S,R,Q) ="
+    input_string = "SRQ000001010011100101110111"
+
+
+    num_row = (2**num_input) + 1
+    num_col = num_input + 2
+    grid = GridspecLayout(num_row, num_col, width=str(num_col * 117.5) + "px")
+
+    # creates the default values for the different input combos of the truth table
+    for i in range(0, num_row):
+        for j in range(0, num_input):
+            val = str(input_string[0])
+            grid[i, j] = create_expanded_button(val, "info")
+            input_string = input_string[1:]
+
+    # creates the click to check button as well as the userinput section of the table
+    for i in range(1, num_row):
+        grid[i, num_input] = widgets.BoundedIntText(
+            min=0, max=2, layout=Layout(height="auto", width="100px")
+        )
+        grid[0, num_col - 1] = create_expanded_button(
+            "Click to Check", "warning", width="150px", tooltip=tooltip
+        )
+
+    # creates the output section of the truth table to know if you're right or not
+    for i in range(1, num_row):
+        grid[i, num_col - 1] = create_expanded_button(" ", "warning", width="150px")
+
+    grid[0, num_input] = create_expanded_button(question_string, "info")
+
+    header_button = create_expanded_button(tt[tooltip][1], "info", "466px")
+
+    return grid, header_button
+
 
 def CheckAnswer(grid, num_inputs, input):
     """
@@ -137,12 +181,27 @@ def create_tt_grids():
         i += 1
     return tt_grids
 
+def create_tt_ff_grids():
+    tt_grids = {}
+    i = 1
+    for key in tt:
+        tt_grids[key] = create_grid_ff(i)
+        i += 1
+    return tt_grids
+
+
+tt_grids = create_tt_grids()
+tt_ff_grids = create_tt_ff_grids()
+
 
 
 
 
 def on_button_clicked(self):
     CheckAnswer(tt_grids[self.tooltip][0], tt[self.tooltip][0], tt[self.tooltip][2])
+
+def on_button_clicked_ff(self):
+    CheckAnswer(tt_ff_grids[self.tooltip][0], tt_ff[self.tooltip][0], tt_ff[self.tooltip][2])
 
 
 def print_tt_grid(question_number):
