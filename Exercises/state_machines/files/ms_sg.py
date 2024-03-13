@@ -5,7 +5,17 @@ answer: This should be a string made up of the letters of the correct answers. F
 question: This is used as the header text
 """
 ms_dict = {
-    "1": ["A", "B", "C", "D", "E", "F", "G", "H", "ABC", "QUESTION"]
+    "1": [
+        "A",
+        "B",
+        "C",
+        "D",
+        "E",
+        "E",
+        "Which States are Complete?",
+    ],
+    "2": ["A", "B", "C", "D", "E", "ABCD", "Which States are Incomplete?"],
+    "3": ["A", "B", "C", "D", "E", "ABCD", "Which States are Conflicting?"],
 }
 
 def get_ms_data():
