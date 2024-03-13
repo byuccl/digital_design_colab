@@ -210,3 +210,10 @@ def print_tt_grid(question_number):
     # Create the head tab
     # Display the widgets
     display(widgets.VBox([tt_grids[key][1], tt_grids[key][0]]))
+
+def print_tt_ff_grid(question_number):
+    key = "Q" + str(question_number)
+    tt_ff_grids[key][0][0, -1].on_click(on_button_clicked_ff)
+    # Create the head tab
+    # Display the widgets
+    display(widgets.VBox([tt_ff_grids[key][1], tt_ff_grids[key][0]]))
