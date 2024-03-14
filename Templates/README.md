@@ -81,3 +81,5 @@ Create Grid Function: The create_grid function generates a truth table grid base
 Check Answer Function: The CheckAnswer function compares user inputs against correct answers, updating button styles and descriptions to indicate correctness.
 
 Create Truth Table Grids: The create_tt_grids function generates a dictionary of truth table grids based on the initialized truth table data.
+
+There is one variation of this template, located under Exercises/flip_flops/files/tt_ff.py. In this case, this template is set up so that it allows for 0, 1, and 2 to be an input, instead of the traditional 1 or 0 input, which in the case of this lesson is used as an undefined output for an SR latch. It is an exception template, as it is only used in one instance within this lesson, but is still noted for documentation and if needed for future implementation of these notebooks. 
