@@ -4,7 +4,18 @@ import ipywidgets as widgets
 from ipywidgets import GridspecLayout
 from ipywidgets import AppLayout, Button, Layout, jslink, IntText, IntSlider
 
+
+
+ms_dict = {}
+ms_grids = {}
+
+def create_ms_dict(dictionary):
+    global ms_dict, ms_grids
+    ms_dict = dictionary
+    ms_grids = create_ms_grids()
+
 # function of creating button widget
+    
 def create_expanded_button(description, button_style, width="400px"):
     return Button(
         description=description,
@@ -49,13 +60,13 @@ def check_answerms(self):
     self.description = "Correct!"
 
 
-"""
-key: The question number
-pair: This should be a list. indexes 0 - -3 are the choices. You can have up to 10 choices. -2 is the answer. -1 is the question
-answer: This should be a string made up of the letters of the correct answers. For example, if the first and second answer are correct, the answer is "AB"
-question: This is used as the header text
-"""
-ms_dict = {"1": ["A", "B", "C", "D", "E", "F", "G", "H", "ABC", "QUESTION"]}
+# """
+# key: The question number
+# pair: This should be a list. indexes 0 - -3 are the choices. You can have up to 10 choices. -2 is the answer. -1 is the question
+# answer: This should be a string made up of the letters of the correct answers. For example, if the first and second answer are correct, the answer is "AB"
+# question: This is used as the header text
+# """
+# ms_dict = {"1": ["A", "B", "C", "D", "E", "F", "G", "H", "ABC", "QUESTION"]}
 
 
 def multiple_select(key, dictionary):
@@ -109,7 +120,7 @@ def create_ms_grids():
     return ms_grids
 
 
-ms_grids = create_ms_grids()
+
 
 
 def print_ms_grid(question_number):
