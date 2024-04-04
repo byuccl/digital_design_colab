@@ -68,6 +68,9 @@ def create_grid(questionNumber):
     elif num_input == 3:
         question_string = "f(A,B,C) ="
         input_string = "ABC000001010011100101110111"
+    elif num_input == 3.:
+        question_string = "f(A,B,S) ="
+        input_string = "ABS000001010011100101110111"
     elif num_input == 4:
         question_string = "f(A,B,C,D) = "
         input_string = (
