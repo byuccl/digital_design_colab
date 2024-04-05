@@ -12,7 +12,7 @@ List
     [1] : The correct answer, MSB is the top row
 """
 tt = {
-    "Q1": [3, "SR Latches Transition/Truth Table", "01001100"],
+    "Q1": [3, "SR Latches Transition/Truth Table", "01001100", "ABC"],
 }
 
 tt_ff = {
