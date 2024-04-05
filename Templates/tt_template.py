@@ -68,7 +68,7 @@ def create_grid(questionNumber):
     elif num_input == 3:
         question_string = "f(A,B,C) ="
         input_string = "ABC000001010011100101110111"
-    elif num_input == 3 :
+    elif num_input == 5:
         question_string = "f(A,B,S) ="
         input_string = "ABS000001010011100101110111"
     elif num_input == 4:
@@ -77,7 +77,7 @@ def create_grid(questionNumber):
             "ABCD0000000100100011010001010110011110001001101010111100110111101111"
         )
 
-    num_row = int((2**num_input) + 1)
+    num_row = (2**num_input) + 1
     num_col = num_input + 2
     grid = GridspecLayout(num_row, num_col, width=str(num_col * 117.5) + "px")
 
