@@ -9,7 +9,9 @@ List
     [2] : specifices questions with different types but same inputs
 """
 tt = {
-    "Q1": [3, "2:1 MUX Table, with A, B, S inputs", "00011011", "ABS"],
+    "Q1": [3, "f(A,B,C) =", "00011011", "ABC"],
+    "Q2": [3, "2:1 MUX Table, with A, B, S inputs", "00011011", "ABS"],
+    # Rest of the dictionary...
 }
 
 def get_tt_data():
