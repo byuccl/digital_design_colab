@@ -101,5 +101,6 @@ There are also several tutorial notebooks that help users learn more about the o
 |Tutorial|Verilog With VS Code|[![colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/byuccl/digital_design_colab/blob/master/Tutorials/verilog_with_vs_code/verilog_with_vs_code.ipynb)|Demonstrates a  better way to write verilog and how to set up VS Code|
 |Tutorial|Bash File System|[![colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/byuccl/digital_design_colab/blob/master/Tutorials/bash_file_system/bash_file_system.ipynb)|How to view and navigate files in a notebook|
 |Tutorial|Simulation Tools|[![colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/byuccl/digital_design_colab/blob/master/Tutorials/using_simulation_tools/using_simulation_tools.ipynb)| Teaches more about WaveDrom and VCD.|
+|Tutorial|Creating a lesson|[![colab](https://colab.research.google.com/assets/colab-badge.svg)](https://github.com/byuccl/digital_design_colab/blob/master/Tutorials/creating_lesson/your_lesson.ipynb)| Teaches more about how to create a lesson on your own.|
 
 </details>
