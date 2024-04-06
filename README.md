@@ -102,5 +102,6 @@ There are also several tutorial notebooks that help users learn more about the o
 |Tutorial|Bash File System|[![colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/byuccl/digital_design_colab/blob/master/Tutorials/bash_file_system/bash_file_system.ipynb)|How to view and navigate files in a notebook|
 |Tutorial|Simulation Tools|[![colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/byuccl/digital_design_colab/blob/master/Tutorials/using_simulation_tools/using_simulation_tools.ipynb)| Teaches more about WaveDrom and VCD.|
 |Tutorial|Creating a lesson|[![colab](https://colab.research.google.com/assets/colab-badge.svg)](https://github.com/byuccl/digital_design_colab/blob/master/Tutorials/creating_lesson/your_lesson.ipynb)| Teaches more about how to create a lesson on your own.|
+|Tutorial|Creating a lab|[![colab](https://colab.research.google.com/assets/colab-badge.svg)](https://github.com/byuccl/digital_design_colab/blob/master/Tutorials/labTemplateFolder/lab_template.ipynb)| Teaches more about how to create a lab on your own.|
 
 </details>
