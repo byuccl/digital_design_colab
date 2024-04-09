@@ -59,20 +59,29 @@ def create_grid(questionNumber):
     num_input = tt[tooltip][0]
     input_string = ""
     question_string = ""
+    question_type = tt[tooltip][3]
     if num_input == 1:
-        input_string = "A01"
-        question_string = "f(A) ="
+        if question_type == "A":
+            input_string = "A01"
+            question_string = "f(A) ="
     elif num_input == 2:
-        input_string = "AB00011011"
-        question_string = "f(A,B) ="
+        if question_type == "AB":
+            input_string = "AB00011011"
+            question_string = "f(A,B) ="
     elif num_input == 3:
-        question_string = "f(A,B,C) ="
-        input_string = "ABC000001010011100101110111"
+        if question_type == "ABC":
+            question_string = "f(A,B,C) ="
+            input_string = "ABC000001010011100101110111"
+        elif question_type == "ABS":
+            question_string = "f(A,B,S) ="
+            input_string = "ABS000001010011100101110111"
     elif num_input == 4:
-        question_string = "f(A,B,C,D) = "
-        input_string = (
-            "ABCD0000000100100011010001010110011110001001101010111100110111101111"
-        )
+        if question_type == "ABCD":
+            question_string = "f(A,B,C,D) = "
+            input_string = (
+                "ABCD0000000100100011010001010110011110001001101010111100110111101111"
+            )
+        
 
     num_row = (2**num_input) + 1
     num_col = num_input + 2
